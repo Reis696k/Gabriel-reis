@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTI - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2E8B57">
+</head>
+<body>
+    <!-- Barra de acessibilidade -->
+    <div class="accessibility-bar">
+        <button class="accessibility-btn" id="dark-mode-btn">
+            <i class="fas fa-moon"></i> Dark Mode
+        </button>
+        
+        <div class="font-size-controls">
+            <span>Aumentar fonte:</span>
+            <button class="font-size-btn" id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+            <button class="font-size-btn" id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
+            <button class="font-size-btn" id="font-reset" aria-label="Resetar tamanho da fonte">A</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <!-- Logo no lado esquerdo -->
+            <a href="index.html" class="logo">
+                <img src="images/logo principal.png" alt="GTI - Get Trash Intelligence" class="logo-light">
+                <img src="images/logo logo-light.png" alt="GTI - Get Trash Intelligence" class="logo-dark">
+            </a>
+    
+            <!-- Menu de navegação -->
+            <nav class="menu">
+                <ul>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                </ul>
+            </nav>
+
+            <!-- Botões de login/cadastro estilizados -->
+            <div class="user-actions">
+                <a href="login.html" class="btn-login">Entrar</a>
+                <a href="cadastro.html" class="btn-register">Cadastrar</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="slogan">Conectando você a um futuro sustentável</h1>
+
+        <section class="section" id="sobre">
+            <div class="awareness">
+                <h2 class="section-title-CA">Conscientização Ambiental</h2>
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <i class="fas fa-recycle service-icon" aria-hidden="true"></i>
+                        <h3>Reciclagem Inteligente</h3>
+                        <p><b>A reciclagem reduz a extração de recursos naturais, economiza energia e diminui a 
+                            quantidade de lixo em aterros sanitários.</b></p>
+                    </div>
+                    <div class="info-box">
+                        <i class="fas fa-leaf service-icon" aria-hidden="true"></i>
+                        <h3>Impacto Ambiental</h3>
+                        <p><b>A reciclagem de uma tonelada de papel pode preservar até 22 árvores, economizar cerca de 70% de energia elétrica e reduzir em até 74% a poluição do ar, quando comparada à produção de papel a partir da matéria-prima virgem.</b></p>
+                    </div>
+                </div>
+                <div class="cta-button">
+                    <a href="cadastro.html" class="btn btn-primary">Faça parte</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="awareness">
+                <h3 class="section-title-PQ">Por que fazer coleta seletiva?</h3>
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <p style="text-align: center; max-width: 1000px; margin: 0 auto;">
+                            <b>A coleta seletiva é o primeiro passo para uma gestão adequada dos resíduos sólidos. 
+                            Ela permite a reciclagem de materiais que seriam descartados, reduzindo o impacto ambiental, 
+                            economizando recursos naturais e gerando emprego e renda para catadores e cooperativas de reciclagem.</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="awareness">
+                <h3 class="section-title-QS">Quem somos?</h3>
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <p style="text-align: center; max-width: 1000px; margin: 0 auto;">
+                            <b>O GTI (Get Trash Intelligence) é uma plataforma inovadora que conecta indivíduos que 
+                            precisam descartar resíduos de maneira adequada com profissionais especializados em 
+                            coleta seletiva. Nosso propósito é simplificar e otimizar o processo de reciclagem, 
+                            tornando-o mais acessível, prático e eficiente para todos.</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOSSOS SERVIÇOS -->
+        <section class="section" id="servicos">
+            <h2 class="section-title-ns">Nossos Serviços</h2>
+            <div class="services">
+                <!-- Metal -->
+                <div class="service-card" onclick="location.href='cadastro.html'" tabindex="0" role="button" aria-label="Serviço de reciclagem de metal">
+                    <img src="images/Caçamba GTI Amarelo.png" alt="Caçamba para reciclagem de metal">
+                    <h3>Metal</h3>
+                    <p>Reciclagem de latas, arames e objetos metálicos</p>
+                    <a href="cadastro.html" class="btn btn-secondary">Agendar</a>
+                </div>
+
+                <!-- Vidro -->
+                <div class="service-card" onclick="location.href='cadastro.html'" tabindex="0" role="button" aria-label="Serviço de reciclagem de vidro">
+                    <img src="images/Caçamba GTI Verde.png" alt="Caçamba para reciclagem de vidro">         
+                    <h3>Vidro</h3>
+                    <p>Garrafas, frascos e vidros planos</p>
+                    <a href="cadastro.html" class="btn btn-secondary">Agendar</a>
+                </div>
+
+                <!-- Plástico -->
+                <div class="service-card" onclick="location.href='cadastro.html'" tabindex="0" role="button" aria-label="Serviço de reciclagem de plástico">
+                    <img src="images/Caçamba GTI Vermelho.png" alt="Caçamba para reciclagem de plástico">
+                    <h3>Plástico</h3>
+                    <p>Embalagens, sacolas e utensílios plásticos</p>
+                    <a href="cadastro.html" class="btn btn-secondary">Agendar</a>
+                </div>
+
+                <!-- Papel -->
+                <div class="service-card" onclick="location.href='cadastro.html'" tabindex="0" role="button" aria-label="Serviço de reciclagem de papel">
+                    <img src="images/Caçamba GTI Azul.png" alt="Caçamba para reciclagem de papel">
+                    <h3>Papel</h3>
+                    <p>Jornais, revistas, caixas de papelão</p>
+                    <a href="cadastro.html" class="btn btn-secondary">Agendar</a>
+                </div>
+
+                <!-- Orgânico -->
+                <div class="service-card" onclick="location.href='cadastro.html'" tabindex="0" role="button" aria-label="Serviço de reciclagem de resíduos orgânicos">
+                    <img src="images/Caçamba GTI Marrom.png" alt="Caçamba para reciclagem de resíduos orgânicos">
+                    <h3>Orgânico</h3>
+                    <p>Restos de alimentos, cascas, podas</p>
+                    <a href="cadastro.html" class="btn btn-secondary">Agendar</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Get Trash Intelligence - Todos os direitos reservados</p>
+            <p>Contato: gettrashintelligence@gmail.com | (21) 98765-4321</p>
+        </div>
+    </footer>
+
+    <script>
+        // Controle do dark mode
+        const darkModeBtn = document.getElementById('dark-mode-btn');
+        darkModeBtn.addEventListener('click', toggleDarkMode);
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            
+            // Atualiza o ícone do botão
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                localStorage.setItem('darkMode', 'ativado');
+            } else {
+                darkModeBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+                localStorage.removeItem('darkMode');
+            }
+        }
+
+        // Verifica se há dark mode ativo no carregamento
+        if (localStorage.getItem('darkMode') === 'ativado') {
+            document.body.classList.add('dark-mode');
+            darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        }
+
+    
+        // Verifica se há preferência salva
+        if (localStorage.getItem('altoContraste') === 'ativado') {
+            document.documentElement.classList.add('alto-contraste');
+        }
+
+        // Controle de tamanho da fonte
+        const fontIncrease = document.getElementById('font-increase');
+        const fontDecrease = document.getElementById('font-decrease');
+        const fontReset = document.getElementById('font-reset');
+        
+        // Tamanho base da fonte (16px)
+        let fontSize = 16;
+
+        fontIncrease.addEventListener('click', function() {
+            if (fontSize < 24) {
+                fontSize += 2;
+                document.documentElement.style.fontSize = fontSize + 'px';
+                localStorage.setItem('fontSize', fontSize);
+            }
+        });
+
+        fontDecrease.addEventListener('click', function() {
+            if (fontSize > 12) {
+                fontSize -= 2;
+                document.documentElement.style.fontSize = fontSize + 'px';
+                localStorage.setItem('fontSize', fontSize);
+            }
+        });
+
+        fontReset.addEventListener('click', function() {
+            fontSize = 16;
+            document.documentElement.style.fontSize = fontSize + 'px';
+            localStorage.setItem('fontSize', fontSize);
+        });
+
+        // Verifica se há tamanho de fonte salvo
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            fontSize = parseInt(savedFontSize);
+            document.documentElement.style.fontSize = fontSize + 'px';
+        }
+    </script>
+</body>
+</html>

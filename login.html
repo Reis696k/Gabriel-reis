@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTI - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2E8B57">
+</head>
+<body>
+    <!-- Barra de acessibilidade -->
+    <div class="accessibility-bar">
+        <button class="accessibility-btn" id="dark-mode-btn">
+            <i class="fas fa-moon"></i> Dark Mode
+        </button>
+        <div class="font-size-controls">
+            <span>Aumentar fonte:</span>
+            <button class="font-size-btn" id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+            <button class="font-size-btn" id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
+            <button class="font-size-btn" id="font-reset" aria-label="Resetar tamanho da fonte">A</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo principal.png" alt="GTI" class="logo-light">
+                <img src="images/logo logo-light.png" alt="GTI" class="logo-dark">
+            </a>
+        </div>
+    </header>
+
+    <!-- Botão Voltar adicionado -->
+    <div class="container">
+        <button class="btn-voltar" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+    </div>
+    <div class="container">
+        <section class="section">
+            <div class="form-container">
+                <h3 class="section-title-login">Faça login</h3>
+                <form id="loginForm" action="serviços.html" method="POST">
+                    <div class="form-group">
+                        <label for="login">Login:</label>
+                        <input type="text" id="login" name="login" maxlength="6" minlength="6" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" maxlength="8" minlength="8" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </div>
+                </form>
+                
+                <div class="form-links">
+                    <p>Ainda não tem uma conta? <a href="cadastro.html">Fazer cadastro</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; Get Trash Intelligence - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Controle do dark mode
+        const darkModeBtn = document.getElementById('dark-mode-btn');
+        darkModeBtn.addEventListener('click', toggleDarkMode);
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                localStorage.setItem('darkMode', 'ativado');
+            } else {
+                darkModeBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+                localStorage.removeItem('darkMode');
+            }
+        }
+
+        // Verifica preferência salva
+        if (localStorage.getItem('darkMode') === 'ativado') {
+            document.body.classList.add('dark-mode');
+            darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        }
+
+        // Controle de tamanho da fonte
+        const fontIncrease = document.getElementById('font-increase');
+        const fontDecrease = document.getElementById('font-decrease');
+        const fontReset = document.getElementById('font-reset');
+        let fontSize = 16;
+
+        fontIncrease.addEventListener('click', function() {
+            if (fontSize < 24) {
+                fontSize += 2;
+                document.documentElement.style.fontSize = fontSize + 'px';
+                localStorage.setItem('fontSize', fontSize);
+            }
+        });
+
+        fontDecrease.addEventListener('click', function() {
+            if (fontSize > 12) {
+                fontSize -= 2;
+                document.documentElement.style.fontSize = fontSize + 'px';
+                localStorage.setItem('fontSize', fontSize);
+            }
+        });
+
+        fontReset.addEventListener('click', function() {
+            fontSize = 16;
+            document.documentElement.style.fontSize = fontSize + 'px';
+            localStorage.setItem('fontSize', fontSize);
+        });
+
+        // Verifica tamanho salvo
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            fontSize = parseInt(savedFontSize);
+            document.documentElement.style.fontSize = fontSize + 'px';
+        }
+
+        // Validação do formulário de login
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', function(event) {
+            const login = document.getElementById('login').value.trim();
+            const senha = document.getElementById('senha').value.trim();
+
+            if (login.length !== 6 || senha.length !== 8) {
+                event.preventDefault(); // Impede o envio do formulário
+                alert('Por favor, preencha o login com 6 caracteres e a senha com 8 caracteres.');
+            }
+        });
+    </script>
+</body>
+</html>

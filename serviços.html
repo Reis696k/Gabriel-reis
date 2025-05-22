@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTI - Nossos Serviços</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2E8B57">
+
+    <!-- API do Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVpjmkgVSlFPjR3mDOM9kdLGio8iSlDaQ&callback=initMap" async defer></script>
+    <style>
+       /* Container do mapa */
+    .map-container {
+        position: relative;
+        margin: 30px 0;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+    
+    /* Borda decorativa  */
+    .map-container::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+        background: linear-gradient(135deg, #2E8B57, #1E90FF);
+        border-radius: 20px;
+        z-index: -1;
+    }
+    
+    /* Estilo do mapa  */
+ #map {
+    height: 500px;
+    width: 100%;
+    border: 4px solid rgba(255,255,255,0.7);
+    border-radius: 12px;
+    box-shadow: 
+        inset 0 0 15px rgba(0,0,0,0.1),
+        0 10px 30px rgba(46, 139, 87, 0.4);
+}
+    
+    /* Legenda  */
+    .map-legend {
+        position: absolute;
+        bottom: 30px;
+        right: 20px;
+        background: rgba(255,255,255,0.9);
+        padding: 10px 15px;
+        border-radius: 8px;
+        border-left: 4px solid #2E8B57;
+        z-index: 100;
+    }
+    </style>
+</head>
+<body>
+    <!-- Barra de acessibilidade -->
+    <div class="accessibility-bar">
+        <button class="accessibility-btn" id="dark-mode-btn">
+            <i class="fas fa-moon"></i> Dark Mode
+        </button>
+        <div class="font-size-controls">
+            <span>Aumentar fonte:</span>
+            <button class="font-size-btn" id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+            <button class="font-size-btn" id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
+            <button class="font-size-btn" id="font-reset" aria-label="Resetar tamanho da fonte">A</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo principal.png" alt="GTI - Get Trash Intelligence" class="logo-light">
+                <img src="images/logo logo-light.png" alt="GTI - Get Trash Intelligence" class="logo-dark">
+            </a>
+            
+            <div class="user-actions">
+                <span class="user-welcome">Olá, <span id="username">Usuário</span></span>
+                <a href="login.html" class="btn-logout">Sair</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Botão Voltar adicionado -->
+    <div class="container">
+        <button class="btn-voltar" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+    </div>
+
+    <div class="container">
+        <!-- Menu de navegação entre as seções -->
+        <nav class="services-nav" aria-label="Navegação de serviços">
+            <ul>
+                <li><a href="#tipos-cacamba" class="active" aria-current="page">Tipos de Caçamba</a></li>
+                <li><a href="#coletas">Dias e Horários</a></li>
+                <li><a href="#planos">Planos Disponíveis</a></li>
+                <li><a href="#mapa-coleta">Pontos de Coleta</a></li>
+            </ul>
+        </nav>
+
+        <!-- Seção Tipos de Caçamba -->
+        <section id="tipos-cacamba" class="section" aria-labelledby="tipos-cacamba-title">
+            <h1 id="tipos-cacamba-title" class="section-title-serviços">Tipos de Caçamba de Lixo</h1>
+            
+            <div class="cacambas-grid">
+                <!-- Caçamba 1 -->
+                <div class="cacamba-card" tabindex="0">
+                    <div class="cacamba-color" style="background-color: #2E8B57;" aria-hidden="true"></div>
+                    <h3>Caçamba Verde - Vidros</h3>
+                    <p><strong>Material:</strong> Plástico, Metal, ou Aço</p>
+                    <p><strong>Capacidade:</strong> 500, 1.000, ou 1.500 litros</p>
+                    <p><strong>Resíduos aceitos:</strong> Garrafas, frascos e vidros planos</p>
+                </div>
+                
+                <!-- Caçamba 2 -->
+                <div class="cacamba-card" tabindex="0">
+                    <div class="cacamba-color" style="background-color: #1E90FF;" aria-hidden="true"></div>
+                    <h3>Caçamba Azul - Papel</h3>
+                    <p><strong>Material:</strong>  Plástico, Metal, ou Aço</p>
+                    <p><strong>Capacidade:</strong> 500, 1.000, ou 1.500 litros</p>
+                    <p><strong>Resíduos aceitos:</strong> Jornais, revistas, caixas de papelão</p>
+                </div>
+                
+                <!-- Caçamba 3 -->
+                <div class="cacamba-card" tabindex="0">
+                    <div class="cacamba-color" style="background-color: #964B00;" aria-hidden="true"></div>
+                    <h3>Caçamba Marrom - Orgânico</h3>
+                    <p><strong>Material:</strong> Plástico, Metal, ou Aço</p>
+                    <p><strong>Capacidade:</strong> 500, 1.000, ou 1.500 litros</p>
+                    <p><strong>Resíduos aceitos:</strong> Restos de alimentos, cascas, podas</p>
+                </div>
+                
+                <!-- Caçamba 4 -->
+                <div class="cacamba-card" tabindex="0">
+                    <div class="cacamba-color" style="background-color: #ff0000;" aria-hidden="true"></div>
+                    <h3>Caçamba Vermelha - Plástico</h3>
+                    <p><strong>Material:</strong> Plástico, Metal, ou Aço</p>
+                    <p><strong>Capacidade:</strong> 500, 1.000, ou 1.500 litros</p>
+                    <p><strong>Resíduos aceitos:</strong> Embalagens, sacolas e utensílios plásticos</p>
+                </div>
+
+                <div class="cacamba-card" tabindex="0">
+                    <div class="cacamba-color" style="background-color: #ffee00;" aria-hidden="true"></div>
+                    <h3>Caçamba Amarela - Metal</h3>
+                    <p><strong>Material:</strong> Plástico, Metal, ou Aço</p>
+                    <p><strong>Capacidade:</strong> 500, 1.000, ou 1.500 litros</p>
+                    <p><strong>Resíduos aceitos:</strong> Reciclagem de latas, arames e objetos metálicos</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Dias e Horários de Coleta -->
+        <section id="coletas" class="section" style="display:none;" aria-labelledby="coletas-title">
+            <h1 id="coletas-title" class="section-title-serviços">Dias e Horários de Coleta</h1>
+            
+            <div class="coleta-schedule">
+                <div class="coleta-card" tabindex="0">
+                    <h3>Zona Norte e Zona Oeste</h3>
+                    <ul class="coleta-dias">
+                        <li><strong>Segunda e Quinta:</strong> 19h - 20h (coleta seletiva)</li>
+                        <li><strong>Sábado:</strong> 19h - 20h (coleta seletiva)</li>
+                    </ul>
+                </div>
+                
+                <div class="coleta-card" tabindex="0">
+                    <h3>Zona Sul</h3>
+                    <ul class="coleta-dias">
+                        <li><strong>Terça e Sexta:</strong> 9h – 10h (coleta seletiva)</li>
+                        <li><strong>Quarta:</strong> 9h – 10h (coleta seletiva)</li>
+                    </ul>
+                </div>
+                
+                <div class="coleta-card" tabindex="0">
+                    <h3>Centro</h3>
+                    <ul class="coleta-dias">
+                        <li><strong>Segunda a Sábado:</strong> 11h – 12h (coleta seletiva)</li>
+                       
+                    </ul>
+                </div>
+                
+                <div class="coleta-info" tabindex="0">
+                    <p><i class="fas fa-info-circle" aria-hidden="true"></i> <strong>Observações:</strong></p>
+                    <ul>
+                        <li>Não há coleta em feriados nacionais</li>
+                        <li>Em dias de chuva forte, a coleta pode ser adiada</li>
+                        <li>Para solicitar coleta especial, contate-nos com 48h de antecedência</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Planos Disponíveis -->
+        <section id="planos" class="section" style="display:none;" aria-labelledby="planos-title">
+            <h1 id="planos-title" class="section-title-serviços">Nossos Planos de Coleta</h1>
+            
+            <div class="service-plans">
+                <!-- Plano Básico -->
+                <div class="plan-card" tabindex="0">
+                    <div class="plan-header">
+                        <h3>Plano Básico</h3>
+                        <div class="plan-price">R$99<span>/mês</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 1 Coleta semanal</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 2 Tipos de resíduos</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Relatório mensal</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Suporte básico</li>
+                        <li><i class="fas fa-times text-danger" aria-hidden="true"></i> Certificado ecológico</li>
+
+                    </ul>
+                    <a href="pagamento.html?plan=basico" class="btn btn-primary btn-block">Quero este plano</a>
+                </div>
+                
+                <!-- Plano Premium -->
+                <div class="plan-card featured" tabindex="0">
+                    <div class="plan-badge">Mais popular</div>
+                    <div class="plan-header">
+                        <h3>Plano Premium</h3>
+                        <div class="plan-price">R$199<span>/mês</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 2 Coletas semanais</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 4 Tipos de resíduos</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Relatório detalhado</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Suporte prioritário</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Certificado ecológico</li>
+                    </ul>
+                    <a href="pagamento.html?plan=premium" class="btn btn-primary btn-block">Quero este plano</a>
+                </div>
+                
+                <!-- Plano Empresarial -->
+                <div class="plan-card" tabindex="0">
+                    <div class="plan-header">
+                        <h3>Plano Empresarial</h3>
+                        <div class="plan-price">Sob consulta</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Coletas diárias</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Todos tipos de resíduos</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Relatório personalizado</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Suporte 24/7</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Consultoria especializada</li>
+                    </ul>
+                    <a href="empresarial.html" class="btn btn-primary btn-block">Fale conosco</a>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <div class="cta-container">
+                    <h2>Pronto para fazer parte da revolução ecológica?</h2>
+                    <p>Junte-se a mais de 1.000 clientes satisfeitos que já estão contribuindo para um planeta mais limpo.</p>
+                    <a href="#" class="btn btn-secondary btn-large">Adquirir Serviço Agora</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Mapa de Pontos de Coleta -->
+        <section id="mapa-coleta" class="section" style="display:none;" aria-labelledby="mapa-coleta-title">
+            <h1 id="mapa-coleta-title" class="section-title-serviços">Pontos de Coleta na sua Região</h1>
+            
+            <div id="map"></div>
+            
+            <div class="map-info">
+                <p>Utilize o mapa para encontrar os pontos de coleta mais próximos de você. Os marcadores coloridos indicam:</p>
+                <ul>
+                    <li><span style="color: green;">●</span> Ecopontos oficiais</li>
+                    <li><span style="color: red;">●</span> Áreas de descarte irregular</li>
+                    <li><span style="color: yellow;">●</span> Lixões</li>
+                </ul>
+                <p>Clique nos marcadores para mais informações sobre cada local.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Get Trash Intelligence - Todos os direitos reservados</p>
+            <p>Contato: gettrashintelligence@gmail.com | (21) 98765-4321</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função do Google Maps
+        function initMap() {
+            // ===== CONFIGURAÇÃO INICIAL DO MAPA =====
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: -22.9068, lng: -43.5632 }, // Centro em Campo Grande
+                zoom: 12,
+                mapTypeId: "hybrid",
+                fullscreenControl: true,
+                streetViewControl: false
+            });
+
+            // ===== PONTOS DE COLETA =====
+            const pontos = [
+                // ---- CAMPO GRANDE ----
+                {
+                    position: { lat: -22.9068, lng: -43.5632 },
+                    title: "Ecoponto Campo Grande (oficial)",
+                    type: "ecoponto",
+                    info: "Endereço: Rua São Francisco Xavier, 200"
+                },
+                {
+                    position: { lat: -22.9123, lng: -43.5587 },
+                    title: "Descarte irregular em Campo Grande",
+                    type: "descarte_irregular",
+                    info: "Terreno baldio com acúmulo de lixo"
+                },
+                
+                // ---- BANGU ----
+                {
+                    position: { lat: -22.8836, lng: -43.4731 },
+                    title: "Lixão próximo à Estrada do Camboatá",
+                    type: "lixao",
+                    info: "Área com descarte irregular"
+                },
+                {
+                    position: { lat: -22.8852, lng: -43.4705 },
+                    title: "Ecoponto Bangu (oficial)",
+                    type: "ecoponto",
+                    info: "Endereço: Av. Santa Cruz, 3000"
+                },
+                
+                // ---- PADRE MIGUEL ----
+                {
+                    position: { lat: -22.8764, lng: -43.4618 },
+                    title: "Descarte irregular em Padre Miguel",
+                    type: "descarte_irregular",
+                    info: "Estrada do Pedregoso"
+                },
+                {
+                    position: { lat: -22.8705, lng: -43.4562 },
+                    title: "Ecoponto Padre Miguel (oficial)",
+                    type: "ecoponto",
+                    info: "Endereço: Rua Belchior da Fonseca, 500"
+                }
+            ];
+
+            // ===== ADICIONAR MARCADORES DE PONTOS =====
+            // Defina os ícones para cada tipo de ponto
+            const icons = {
+                ecoponto: { url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png" },
+                lixao: { url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png" },
+                descarte_irregular: { url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png" }
+            };
+
+            pontos.forEach(ponto => {
+                const marker = new google.maps.Marker({
+                    position: ponto.position,
+                    map: map,
+                    title: ponto.title,
+                    icon: icons[ponto.type].url
+                });
+
+                // Janela de informações ao clicar
+                const infowindow = new google.maps.InfoWindow({
+                    content: `<strong>${ponto.title}</strong><br>${ponto.info}`
+                });
+
+                marker.addListener("click", () => {
+                    infowindow.open(map, marker);
+                });
+            });
+
+            // ===== LEGENDA DO MAPA =====
+            const legend = document.createElement("div");
+            legend.innerHTML = `
+                <div style="background: white; padding: 10px; border: 1px solid #ccc;">
+                    <h4 style="margin-top: 0;">Legenda:</h4>
+                    <div><img src="${icons.ecoponto.url}" width="20"> Ecoponto Oficial</div>
+                    <div><img src="${icons.lixao.url}" width="20"> Lixão</div>
+                    <div><img src="${icons.descarte_irregular.url}" width="20"> Descarte Irregular</div>
+                </div>
+            `;
+            legend.style.position = "absolute";
+            legend.style.bottom = "30px";
+            legend.style.left = "10px";
+            map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend);
+        }
+
+        // Controle do dark mode
+        const darkModeBtn = document.getElementById('dark-mode-btn');
+        darkModeBtn.addEventListener('click', toggleDarkMode);
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                localStorage.setItem('darkMode', 'ativado');
+            } else {
+                darkModeBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+                localStorage.removeItem('darkMode');
+            }
+        }
+
+        // Verifica preferência salva
+        if (localStorage.getItem('darkMode') === 'ativado') {
+            document.body.classList.add('dark-mode');
+            darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        }
+
+        // Controle de tamanho da fonte
+        const fontIncrease = document.getElementById('font-increase');
+        const fontDecrease = document.getElementById('font-decrease');
+        const fontReset = document.getElementById('font-reset');
+        let fontSize = 16;
+
+        fontIncrease.addEventListener('click', function() {
+            if (fontSize < 24) {
+                fontSize += 2;
+                document.documentElement.style.fontSize = fontSize + 'px';
+                localStorage.setItem('fontSize', fontSize);
+            }
+        });
+
+        fontDecrease.addEventListener('click', function() {
+            if (fontSize > 12) {
+                fontSize -= 2;
+                document.documentElement.style.fontSize = fontSize + 'px';
+                localStorage.setItem('fontSize', fontSize);
+            }
+        });
+
+        fontReset.addEventListener('click', function() {
+            fontSize = 16;
+            document.documentElement.style.fontSize = fontSize + 'px';
+            localStorage.setItem('fontSize', fontSize);
+        });
+
+        // Verifica tamanho salvo
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            fontSize = parseInt(savedFontSize);
+            document.documentElement.style.fontSize = fontSize + 'px';
+        }
+
+        // Navegação entre seções
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.services-nav a');
+            const sections = document.querySelectorAll('.section');
+            
+            sections[0].style.display = 'block';
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    navLinks.forEach(l => l.removeAttribute('aria-current'));
+                    this.classList.add('active');
+                    this.setAttribute('aria-current', 'page');
+                    
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    const target = this.getAttribute('href');
+                    document.querySelector(target).style.display = 'block';
+                    
+                    // Se for a seção do mapa, redimensiona o mapa
+                    if (target === '#mapa-coleta') {
+                        setTimeout(() => {
+                            google.maps.event.trigger(map, 'resize');
+                            map.setCenter({ lat: -22.9068, lng: -43.5632 });
+                        }, 100);
+                    } else {
+                        document.querySelector(target + ' h1').focus();
+                    }
+                });
+            });
+
+            // Recuperar nome do usuário se existir
+            const savedUsername = localStorage.getItem('username');
+            if (savedUsername) {
+                document.getElementById('username').textContent = savedUsername;
+            }
+        });
+    </script>
+</body>
+</html>
