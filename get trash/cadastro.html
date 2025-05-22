@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTI - Cadastro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2E8B57">
+</head>
+<body>
+    <!-- Barra de acessibilidade -->
+    <div class="accessibility-bar">
+        <button class="accessibility-btn" id="dark-mode-btn">
+            <i class="fas fa-moon"></i> Dark Mode
+        </button>
+        <div class="font-size-controls">
+            <span>Aumentar fonte:</span>
+            <button class="font-size-btn" id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+            <button class="font-size-btn" id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
+            <button class="font-size-btn" id="font-reset" aria-label="Resetar tamanho da fonte">A</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo principal.png" alt="GTI" class="logo-light">
+                <img src="images/logo logo-light.png" alt="GTI" class="logo-dark">
+            </a>
+        </div>
+    </header>
+
+    <!-- Botão Voltar adicionado -->
+    <div class="container">
+        <button class="btn-voltar" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+    </div>
+
+    <div class="container">
+        <section class="section">
+            <div class="form-container">
+                <h3 class="section-title-cadastro">Crie sua conta</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="nome">Nome completo:</label>
+                        <input type="text" id="nome" name="nome" maxLength="60" minLength="15" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nascimento">Data de Nascimento:</label>
+                        <input type="date" id="nascimento" name="nascimento" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sexo">Sexo:</label>
+                        <select id="sexo" name="sexo" required>
+                            <option value="">Selecione</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="outro">Outro</option>
+                            <option value="nao_informar">Prefiro não informar</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="categoria">Em qual categoria você se encaixa?</label>
+                        <select id="categoria" name="categoria" required>
+                            <option value="">Selecione</option>
+                            <option value="feminino">Residência</option>
+                            <option value="masculino">Condomínio Residencial</option>
+                            <option value="outro">Empresa/Comércio</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nome_materno">Nome da Mãe:</label>
+                        <input type="text" id="nome_materno" name="nome_materno" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="celular">Telefone Celular:</label>
+                        <input id ="cel"
+                            type="tel" 
+                            id="celular" 
+                            name="celular" 
+                            placeholder="(00) 00000-0000" 
+                            pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" 
+                            required
+                            oninput="formatarTelefone(this)">
+                        
+                    </div>
+                    
+                    <!-- Substitua o bloco do Telefone Fixo pelo padrão correto -->
+                    <div class="form-group">
+                                <label for="telefone">Telefone*</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                            </div>
+                    
+                    <div class="form-group">
+                        <label for="endereco">Endereço Completo:</label>
+                        <input type="text" id="endereco" name="endereco" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login">Login:</label>
+                        <input type="text" id="login" name="login" maxLength="10" minLength="10" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" maxLength="15" minLength="15" required !important>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmar_senha">Confirmar Senha:</label>
+                        <input type="password" id="confirmar_senha" name="confirmar_senha" maxLength="15" minLength="15" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <a href="serviços.html"></a>
+                    </div>
+                </form>
+                
+                <div class="form-links">
+                    <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Get Trash Intelligence - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Controle do dark mode
+        const darkModeBtn = document.getElementById('dark-mode-btn');
+        darkModeBtn.addEventListener('click', toggleDarkMode);
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                localStorage.setItem('darkMode', 'ativado');
+            } else {
+                darkModeBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+                localStorage.removeItem('darkMode');
+            }
+        }
+
+        // Verifica preferência salva
+        if (localStorage.getItem('darkMode') === 'ativado') {
+            document.body.classList.add('dark-mode');
+            darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        }
+// Controle de tamanho da fonte
+        const fontIncrease = document.getElementById('font-increase');
+        const fontDecrease = document.getElementById('font-decrease');
+        const fontReset = document.getElementById('font-reset');
+        
+        // Tamanho base da fonte (16px)
+        let fontSize = 16;
+
+        fontIncrease.addEventListener('click', function() {
+            if (fontSize < 24) {
+                fontSize += 2;
+                document.documentElement.style.fontSize = fontSize + 'px';
+                localStorage.setItem('fontSize', fontSize);
+            }
+        });
+
+        fontDecrease.addEventListener('click', function() {
+            if (fontSize > 12) {
+                fontSize -= 2;
+                document.documentElement.style.fontSize = fontSize + 'px';
+                localStorage.setItem('fontSize', fontSize);
+            }
+        });
+
+        fontReset.addEventListener('click', function() {
+            fontSize = 16;
+            document.documentElement.style.fontSize = fontSize + 'px';
+            localStorage.setItem('fontSize', fontSize);
+        });
+
+        // Verifica se há tamanho de fonte salvo
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            fontSize = parseInt(savedFontSize);
+            document.documentElement.style.fontSize = fontSize + 'px';
+        }
+
+
+
+    // Formatação do telefone (igual ao da página de pagamento)
+    document.getElementById('telefone').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não for dígito
+        
+        if (value.length > 10) { // Celular com 11 dígitos (DD + 9 dígitos)
+            value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+        } else if (value.length > 6) { // Telefone fixo com 10 dígitos (DD + 8 dígitos)
+            value = value.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+        } else if (value.length > 2) { // Apenas o DDD + parte do número
+            value = value.replace(/^(\d{2})(\d{4})$/, '($1) $2');
+        } else if (value.length > 0) { // Apenas o DDD
+            value = value.replace(/^(\d{2})$/, '($1)');
+        }
+        
+        e.target.value = value;
+    });
+
+    
+    // Formatação do telefone (igual ao da página de pagamento)
+    document.getElementById('cel').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não for dígito
+        
+        if (value.length > 10) { // Celular com 11 dígitos (DD + 9 dígitos)
+            value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+        } else if (value.length > 6) { // Telefone fixo com 10 dígitos (DD + 8 dígitos)
+            value = value.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+        } else if (value.length > 2) { // Apenas o DDD + parte do número
+            value = value.replace(/^(\d{2})(\d{4})$/, '($1) $2');
+        } else if (value.length > 0) { // Apenas o DDD
+            value = value.replace(/^(\d{2})$/, '($1)');
+        }
+        
+        e.target.value = value;
+    });
+// Formatação do CPF
+        document.getElementById('cpf').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 9) {
+                value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
+            } else if (value.length > 6) {
+                value = value.replace(/^(\d{3})(\d{3})(\d{3})$/, '$1.$2.$3');
+            } else if (value.length > 3) {
+                value = value.replace(/^(\d{3})(\d{3})$/, '$1.$2');
+            }
+            
+            e.target.value = value;
+        });
+
+
+                  
+    </script>
+</body>
+</html>

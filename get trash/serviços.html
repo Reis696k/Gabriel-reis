@@ -1,0 +1,245 @@
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTI - Nossos Serviços</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2E8B57">
+    <script src="js/scrpit.js"></script>
+</head>
+<body>
+    <!-- Barra de acessibilidade -->
+    <div class="accessibility-bar">
+        <button class="accessibility-btn" id="dark-mode-btn">
+            <i class="fas fa-moon"></i> Dark Mode
+        </button>
+        <div class="font-size-controls">
+            <span>Aumentar fonte:</span>
+            <button class="font-size-btn" id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+            <button class="font-size-btn" id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
+            <button class="font-size-btn" id="font-reset" aria-label="Resetar tamanho da fonte">A</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo principal.png" alt="GTI - Get Trash Intelligence" class="logo-light">
+                <img src="images/logo logo-light.png" alt="GTI - Get Trash Intelligence" class="logo-dark">
+            </a>
+            
+            <div class="user-actions">
+                <span class="user-welcome">Olá, <span id="username">Usuário</span></span>
+                <a href="login.html" class="btn-logout">Sair</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Botão Voltar adicionado -->
+    <div class="container">
+        <button class="btn-voltar" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+    </div>
+
+    <div class="container">
+        <!-- Menu de navegação entre as seções -->
+        <nav class="services-nav" aria-label="Navegação de serviços">
+            <ul>
+                <li><a href="#tipos-cacamba" class="active" aria-current="page">Tipos de Caçamba</a></li>
+                <li><a href="#coletas">Dias e Horários</a></li>
+                <li><a href="#planos">Planos Disponíveis</a></li>
+            </ul>
+        </nav>
+
+        <!-- Seção Tipos de Caçamba -->
+        <section id="tipos-cacamba" class="section" aria-labelledby="tipos-cacamba-title">
+            <h1 id="tipos-cacamba-title" class="section-title-serviços">Tipos de Caçamba de Lixo</h1>
+            
+            <div class="cacambas-grid">
+                <!-- Caçamba 1 -->
+                <div class="cacamba-card" tabindex="0">
+                    <div class="cacamba-color" style="background-color: #2E8B57;" aria-hidden="true"></div>
+                    <h3>Caçamba Verde - Vidros</h3>
+                    <p><strong>Material:</strong> Plástico, Metal, ou Aço</p>
+                    <p><strong>Capacidade:</strong> 500, 1.000, ou 1.500 litros</p>
+                    <p><strong>Resíduos aceitos:</strong> Garrafas, frascos e vidros planos</p>
+                </div>
+                
+                <!-- Caçamba 2 -->
+                <div class="cacamba-card" tabindex="0">
+                    <div class="cacamba-color" style="background-color: #1E90FF;" aria-hidden="true"></div>
+                    <h3>Caçamba Azul - Papel</h3>
+                    <p><strong>Material:</strong>  Plástico, Metal, ou Aço</p>
+                    <p><strong>Capacidade:</strong> 500, 1.000, ou 1.500 litros</p>
+                    <p><strong>Resíduos aceitos:</strong> Jornais, revistas, caixas de papelão</p>
+                </div>
+                
+                <!-- Caçamba 3 -->
+                <div class="cacamba-card" tabindex="0">
+                    <div class="cacamba-color" style="background-color: #964B00;" aria-hidden="true"></div>
+                    <h3>Caçamba Marrom - Orgânico</h3>
+                    <p><strong>Material:</strong> Plástico, Metal, ou Aço</p>
+                    <p><strong>Capacidade:</strong> 500, 1.000, ou 1.500 litros</p>
+                    <p><strong>Resíduos aceitos:</strong> Restos de alimentos, cascas, podas</p>
+                </div>
+                
+                <!-- Caçamba 4 -->
+                <div class="cacamba-card" tabindex="0">
+                    <div class="cacamba-color" style="background-color: #ff0000;" aria-hidden="true"></div>
+                    <h3>Caçamba Vermelha - Plástico</h3>
+                    <p><strong>Material:</strong> Plástico, Metal, ou Aço</p>
+                    <p><strong>Capacidade:</strong> 500, 1.000, ou 1.500 litros</p>
+                    <p><strong>Resíduos aceitos:</strong> Embalagens, sacolas e utensílios plásticos</p>
+                </div>
+
+                <div class="cacamba-card" tabindex="0">
+                    <div class="cacamba-color" style="background-color: #ffee00;" aria-hidden="true"></div>
+                    <h3>Caçamba Amarela - Metal</h3>
+                    <p><strong>Material:</strong> Plástico, Metal, ou Aço</p>
+                    <p><strong>Capacidade:</strong> 500, 1.000, ou 1.500 litros</p>
+                    <p><strong>Resíduos aceitos:</strong> Reciclagem de latas, arames e objetos metálicos</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Dias e Horários de Coleta -->
+        <section id="coletas" class="section" style="display:none;" aria-labelledby="coletas-title">
+            <h1 id="coletas-title" class="section-title-serviços">Dias e Horários de Coleta</h1>
+            
+            <div class="coleta-schedule">
+                <div class="coleta-card" tabindex="0">
+                    <h3>Zona Norte e Zona Oeste</h3>
+                    <ul class="coleta-dias">
+                        <li><strong>Segunda e Quinta:</strong> 19h - 20h (coleta seletiva)</li>
+                        <li><strong>Sábado:</strong> 19h - 20h (coleta seletiva)</li>
+                    </ul>
+                </div>
+                
+                <div class="coleta-card" tabindex="0">
+                    <h3>Zona Sul</h3>
+                    <ul class="coleta-dias">
+                        <li><strong>Terça e Sexta:</strong> 9h – 10h (coleta seletiva)</li>
+                        <li><strong>Quarta:</strong> 9h – 10h (coleta seletiva)</li>
+                    </ul>
+                </div>
+                
+                <div class="coleta-card" tabindex="0">
+                    <h3>Centro</h3>
+                    <ul class="coleta-dias">
+                        <li><strong>Segunda a Sábado:</strong> 11h – 12h (coleta seletiva)</li>
+                    </ul>
+                </div>
+                
+                <!-- Mapa de Referência -->
+                <div class="map-container">
+                    <h2>Nossa Localização</h2>
+                    <div id="map"></div>
+                </div>
+
+                <div class="coleta-info" tabindex="0">
+                    <p><i class="fas fa-info-circle" aria-hidden="true"></i> <strong>Observações:</strong></p>
+                    <ul>
+                        <li>Não há coleta em feriados nacionais</li>
+                        <li>Em dias de chuva forte, a coleta pode ser adiada</li>
+                        <li>Para solicitar coleta especial, contate-nos com 48h de antecedência</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Planos Disponíveis -->
+        <section id="planos" class="section" style="display:none;" aria-labelledby="planos-title">
+            <h1 id="planos-title" class="section-title-serviços">Nossos Planos de Coleta</h1>
+            
+            <div class="service-plans">
+                <!-- Plano Básico -->
+                <div class="plan-card" tabindex="0">
+                    <div class="plan-header">
+                        <h3>Plano Básico</h3>
+                        <div class="plan-price">R$99<span>/mês</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 1 Coleta semanal</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 2 Tipos de resíduos</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Relatório mensal</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Suporte básico</li>
+                        <li><i class="fas fa-times text-danger" aria-hidden="true"></i> Certificado ecológico</li>
+                    </ul>
+                    <a href="pagamento.html?plan=basico" class="btn btn-primary btn-block">Quero este plano</a>
+                </div>
+                
+                <!-- Plano Premium -->
+                <div class="plan-card featured" tabindex="0">
+                    <div class="plan-badge">Mais popular</div>
+                    <div class="plan-header">
+                        <h3>Plano Premium</h3>
+                        <div class="plan-price">R$199<span>/mês</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 2 Coletas semanais</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 4 Tipos de resíduos</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Relatório detalhado</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Suporte prioritário</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Certificado ecológico</li>
+                    </ul>
+                    <a href="pagamento.html?plan=premium" class="btn btn-primary btn-block">Quero este plano</a>
+                </div>
+                
+                <!-- Plano Empresarial -->
+                <div class="plan-card" tabindex="0">
+                    <div class="plan-header">
+                        <h3>Plano Empresarial</h3>
+                        <div class="plan-price">Sob consulta</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Coletas diárias</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Todos tipos de resíduos</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Relatório personalizado</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Suporte 24/7</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Consultoria especializada</li>
+                    </ul>
+                    <a href="empresarial.html" class="btn btn-primary btn-block">Fale conosco</a>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <div class="cta-container">
+                    <h2>Pronto para fazer parte da revolução ecológica?</h2>
+                    <p>Junte-se a mais de 1.000 clientes satisfeitos que já estão contribuindo para um planeta mais limpo.</p>
+                    <a href="#" class="btn btn-secondary btn-large">Adquirir Serviço Agora</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Get Trash Intelligence - Todos os direitos reservados</p>
+            <p>Contato: gettrashintelligence@gmail.com | (21) 98765-4321</p>
+        </div>
+    </footer>
+
+
+
+
+
+<!-- Carrega a API do Google Maps -->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVpjmkgVSlFPjR3mDOM9kdLGio8iSlDaQ&callback=initMap">
+</script>
+
+ 
+
+</body>
+</html>
