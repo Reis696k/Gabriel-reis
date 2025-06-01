@@ -2,136 +2,106 @@
    VARIÁVEIS E RESET
    ====================== */
 :root {
-    --verde-primario: #2E8B57;
-    --verde-primario2: #2E8B57;
-    --verde-secundario: #3CB371;
-    --verde-claro: #90EE90;
-    --marrom-terroso: #216e0e;
-    --bege: #F5DEB3;
-    --branco: #FFFFFF;
-    --branco2: #FFFFFF;
-    --preto: #333333;
-    --cinza: #F0F0F0;
-    --cinza-escuro: #555;
-    --fonte-base: 16px;
+    --primary-color: #2E8B57;
+    --primary-dark: #1F6B3D;
+    --primary-light: #3CAA6D;
+    --white: #FFFFFF;
+    --light-bg: #F5F7FA;
+    --dark-bg: #121212;
+    --dark-text: #333333;
+    --light-text: #F5F5F5;
+    --gray: #6C757D;
+    --gray-light: #E9ECEF;
     --transition: all 0.3s ease;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
+    --border-radius: 8px;
+    --border-radius-lg: 16px;
+    --font-base: 'Poppins', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
 }
 
-/* Dark Mode */
 .dark-mode {
-    --branco: #1a1a1a;
-    --preto: #f0f0f0;
-    --cinza: #2d2d2d;
-    --verde-primario: #1e5631;
-    --verde-primario2: #4CAF50;
-    --verde-claro: #1e5631;
-    --cinza-escuro: #b3b3b3;
+    --white: #1E1E1E;
+    --light-bg: #121212;
+    --dark-text: #F5F5F5;
+    --light-text: #F5F5F5;
+    --gray-light: #2D2D2D;
 }
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 html {
-    font-size: var(--fonte-base);
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--cinza);
-    color: var(--preto);
+    font-family: var(--font-base);
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    transition: var(--transition);
     line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
-/* ======================
-   LOGO
-   ====================== */
-.logo {
-    position: relative;
-    display: block;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.logo img {
-    height: auto;
-    max-width: 190px;
+.container {
     width: 100%;
-    transition: var(--transition);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-/* Esconde a logo dark por padrão */
-.logo-dark {
-    display: none;
-}
-
-/* Mostra a logo dark no modo escuro */
-.dark-mode .logo-light {
-    display: none;
-}
-
-.dark-mode .logo-dark {
-    display: block;
-}
-
-/* ======================
-   ACESSIBILIDADE
-   ====================== */
+/* ===== BARRA DE ACESSIBILIDADE ===== */
 .accessibility-bar {
-    background-color: var(--verde-primario);
-    padding: 10px 0;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
     display: flex;
-    justify-content: flex-end;
-    gap: 15px;
+    justify-content: space-between;
     align-items: center;
-}
-
-.accessibility-btn {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
+    flex-wrap: wrap;
+    gap: 1rem;
     font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: var(--transition);
 }
 
-.accessibility-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.accessibility-btn, .font-size-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--light-text);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.accessibility-btn:hover, .font-size-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .font-size-controls {
     display: flex;
     align-items: center;
-    gap: 5px;
-    color: var(--branco2);
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
-.font-size-btn {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 1rem;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.font-size-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.font-size-controls span {
+    margin-right: 0.5rem;
+    color: var(--light-text);
 }
 
 /* ======================
@@ -143,8 +113,8 @@ body {
     gap: 8px;
     padding: 10px 20px;
     margin: 20px 0;
-    background-color: var(--verde-primario);
-    color: var(--branco2);
+    background-color: var(--primary-color);
+    color: var(--light-text);
     border: none;
     border-radius: 30px;
     font-weight: 600;
@@ -154,7 +124,7 @@ body {
 }
 
 .btn-voltar:hover {
-    background-color: var(--verde-primario);
+    background-color: var(--primary-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
@@ -165,66 +135,148 @@ body {
 
 /* Ajuste para dark mode */
 .dark-mode .btn-voltar {
-    background-color: var(--verde-primario);
+    background-color: var(--primary-color);
 }
 
 .dark-mode .btn-voltar:hover {
-    background-color: var(--verde-primario);
+    background-color: var(--primary-color);
 }
 
-/* ======================
-   LAYOUT BASE
-   ====================== */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
-    flex: 1;
-    color: var(--preto);
-}
-
-/* ======================
-   HEADER
-   ====================== */
+/* ===== HEADER ===== */
 header {
-    background-color: var(--branco);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.dark-mode header {
+    background-color: #1E1E1E;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 1rem 0;
+    position: relative;
 }
 
-/* ======================
-   MENU NAVEGAÇÃO
-   ====================== */
+.logo img {
+    height: 50px;
+    transition: var(--transition);
+}
+
+.logo-dark {
+    display: none;
+}
+
+.dark-mode .logo-light {
+    display: none;
+}
+
+.dark-mode .logo-dark {
+    display: block;
+}
+
 .menu ul {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 2rem;
     margin: 0;
     padding: 0;
 }
 
 .menu a {
-    color: var(--preto);
     font-weight: 600;
+    position: relative;
     padding: 8px 15px;
-    border-radius: 20px;
     transition: var(--transition);
+    border-radius: 20px;
     text-decoration: none;
 }
 
-.menu a:hover {
-    color: white !important;
-    background-color: var(--verde-primario);
+.menu a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.dark-mode .menu a.active {
+    color: var(--primary-light);
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.dark-mode .menu a::after {
+    background-color: var(--primary-light);
+}
+
+.user-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-login, .btn-register {
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.btn-login {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-login:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-register {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-register:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.dark-mode .btn-login {
+    border-color: var(--primary-light);
+    color: var(--primary-light);
+}
+
+.dark-mode .btn-login:hover {
+    background-color: var(--primary-light);
+    color: var(--dark-bg);
+}
+
+.dark-mode .btn-register {
+    background-color: var(--primary-light);
+}
+
+.dark-mode .btn-register:hover {
+    background-color: var(--primary-color);
 }
 
 /* ======================
@@ -237,7 +289,7 @@ header {
 .section-title {
     text-align: center;
     margin-bottom: 15px;
-    color: var(--verde-primario2);
+    color: var(--primary-light);
     font-size: 1.75rem;
     font-weight: 700;
 }
@@ -245,7 +297,7 @@ header {
 .section-subtitle {
     text-align: center;
     margin-bottom: 30px;
-    color: var(--preto);
+    color: var(--dark-text);
     font-size: 1.1rem;
     max-width: 700px;
     margin-left: auto;
@@ -258,7 +310,7 @@ header {
 .form-container {
     max-width: 900px;
     margin: 0 auto;
-    background-color: var(--branco);
+    background-color: var(--white);
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -267,7 +319,7 @@ header {
 .form-section {
     margin-bottom: 30px;
     padding-bottom: 30px;
-    border-bottom: 1px solid var(--cinza);
+    border-bottom: 1px solid var(--gray-light);
 }
 
 .form-section:last-child {
@@ -277,7 +329,7 @@ header {
 }
 
 .form-section h2 {
-    color: var(--verde-primario);
+    color: var(--primary-color);
     margin-bottom: 20px;
     font-size: 1.25rem;
     display: flex;
@@ -311,7 +363,7 @@ header {
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: var(--verde-primario2);
+    color: var(--primary-light);
     font-weight: bold;
     font-size: 0.95rem;
 }
@@ -325,8 +377,12 @@ header {
     border-radius: 5px;
     font-size: 1rem;
     transition: var(--transition);
-    background-color: var(--branco);
-    color: var(--preto);
+    background-color: var(--white);
+    color: var(--dark-text);
+}
+
+.form-group input.checkbox {
+    width: 2%;
 }
 
 .form-group textarea {
@@ -337,7 +393,7 @@ header {
 .form-group input:focus, 
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: var(--verde-primario);
+    border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2);
 }
@@ -382,12 +438,12 @@ header {
 }
 
 .btn-primary {
-    background-color: var(--verde-primario);
-    color: var(--branco2);
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
 .btn-primary:hover {
-    background-color: var(--verde-secundario);
+    background-color: var(--primary-light);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -401,8 +457,8 @@ header {
    RODAPÉ
    ====================== */
 footer {
-    background-color: var(--verde-primario);
-    color: var(--branco);
+    background-color: var(--primary-color);
+    color: var(--white);
     text-align: center;
     padding: 20px 0;
     margin-top: 40px;

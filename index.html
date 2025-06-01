@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTI - Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>GTI - Soluções Sustentáveis em Reciclagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
@@ -15,6 +15,753 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#2E8B57">
+    
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --primary-dark: #1F6B3D;
+            --primary-light: #3CAA6D;
+            --white: #FFFFFF;
+            --light-bg: #F5F7FA;
+            --dark-bg: #121212;
+            --dark-text: #333333;
+            --light-text: #F5F5F5;
+            --gray: #6C757D;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+            --font-base: 'Poppins', sans-serif;
+            --font-heading: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-base);
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Barra de acessibilidade */
+        .accessibility-bar {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .accessibility-btn, .font-size-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .accessibility-btn:hover, .font-size-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .font-size-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .font-size-controls span {
+            font-size: 0.9rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        body.dark-mode header {
+            background-color: #1E1E1E;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .logo-dark {
+            display: none;
+        }
+
+        body.dark-mode .logo-light {
+            display: none;
+        }
+
+        body.dark-mode .logo-dark {
+            display: block;
+        }
+
+        .menu ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .menu a {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        body.dark-mode .menu a::after {
+            background-color: var(--primary-light);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-login, .btn-register {
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-login {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-register {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-register:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        body.dark-mode .btn-login {
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+        }
+
+        body.dark-mode .btn-login:hover {
+            background-color: var(--primary-light);
+            color: var(--dark-bg);
+        }
+
+        body.dark-mode .btn-register {
+            background-color: var(--primary-light);
+        }
+
+        body.dark-mode .btn-register:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.8), rgba(60, 170, 109, 0.9)), url('images/eco-bg.jpg') no-repeat center/cover;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, transparent 0%, rgba(0,0,0,0.5) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/coleta.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .slogan {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--white);
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            animation: fadeIn 1s ease 0.6s both;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background-color: var(--primary-light);
+            color: var(--white);
+        }
+
+        /* Seções */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+            border-radius: 2px;
+        }
+
+        body.dark-mode .section-title::after {
+            background: linear-gradient(90deg, var(--primary-light), transparent);
+        }
+
+        /* Cards de Serviços */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            /* Adicione isso para garantir altura igual */
+            align-items: stretch;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            /* Adicione estas linhas para flexbox */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        body.dark-mode .service-card {
+            background: #252525;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.1), transparent);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        body.dark-mode .service-card h3 {
+            color: var(--primary-light);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            /* Remova o margin-bottom se quiser menos espaço */
+            flex-grow: 1; /* Faz o texto ocupar o espaço disponível */
+        }
+
+        .service-card .btn {
+            margin-top: auto; /* Garante que o botão fique na base */
+        }
+
+        body.dark-mode .service-card p {
+            color: #AAAAAA;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            justify-content: bottom;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        body.dark-mode .btn-secondary {
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+        }
+
+        body.dark-mode .btn-secondary:hover {
+            background-color: var(--primary-light);
+            color: var(--dark-bg);
+        }
+
+        /* Boxes de Informação */
+        .info-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-box {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        body.dark-mode .info-box {
+            background: #252525;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        body.dark-mode .info-box::before {
+            background-color: var(--primary-light);
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .info-box:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        body.dark-mode .service-icon {
+            color: var(--primary-light);
+        }
+
+        .info-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            color: var(--gray);
+        }
+
+        body.dark-mode .info-box p {
+            color: #AAAAAA;
+        }
+
+        /* Missão, Visão e Valores */
+        .mvw-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mvw-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mvw-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mvw-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        body.dark-mode .mvw-icon {
+            color: var(--primary-light);
+        }
+
+        .mvw-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        body.dark-mode footer {
+            background-color: #111;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .slogan {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.5rem 0;
+            }
+            
+            .menu ul {
+                gap: 1.5rem;
+            }
+            
+            .slogan {
+                font-size: 2.2rem;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 5rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .accessibility-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            .menu ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .user-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .slogan {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .info-boxes, .mvw-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animações personalizadas */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
 </head>
 <body>
     <!-- Barra de acessibilidade -->
@@ -44,6 +791,8 @@
                 <ul>
                     <li><a href="#servicos">Serviços</a></li>
                     <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#missao">Missão</a></li>
+                    <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
 
@@ -55,41 +804,46 @@
         </div>
     </header>
 
-    <div class="container">
-        <h1 class="slogan">Conectando você a um futuro sustentável</h1>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="slogan animate__animated animate__fadeInDown">Conectando você a um futuro sustentável</h1>
+            <p class="animate__animated animate__fadeInUp">Soluções inteligentes para gestão de resíduos e reciclagem</p>
+            <a href="#servicos" class="btn-hero animate__animated animate__fadeIn">Conheça nossos serviços</a>
+        </div>
+    </section>
 
+    <div class="container">
         <section class="section" id="sobre">
-            <div class="awareness">
-                <h2 class="section-title-CA">Conscientização Ambiental</h2>
-                <div class="info-boxes">
-                    <div class="info-box">
-                        <i class="fas fa-recycle service-icon" aria-hidden="true"></i>
-                        <h3>Reciclagem Inteligente</h3>
-                        <p><b>A reciclagem reduz a extração de recursos naturais, economiza energia e diminui a 
-                            quantidade de lixo em aterros sanitários.</b></p>
-                    </div>
-                    <div class="info-box">
-                        <i class="fas fa-leaf service-icon" aria-hidden="true"></i>
-                        <h3>Impacto Ambiental</h3>
-                        <p><b>A reciclagem de uma tonelada de papel pode preservar até 22 árvores, economizar cerca de 70% de energia elétrica e reduzir em até 74% a poluição do ar, quando comparada à produção de papel a partir da matéria-prima virgem.</b></p>
-                    </div>
+            <h2 class="section-title">Conscientização Ambiental</h2>
+            <div class="info-boxes">
+                <div class="info-box">
+                    <i class="fas fa-recycle service-icon floating" aria-hidden="true"></i>
+                    <h3>Reciclagem Inteligente</h3>
+                    <p>A reciclagem reduz a extração de recursos naturais, economiza energia e diminui a quantidade de lixo em aterros sanitários. Cada material reciclado representa menos impacto no meio ambiente.</p>
                 </div>
-                <div class="cta-button">
-                    <a href="cadastro.html" class="btn btn-primary">Faça parte</a>
+                <div class="info-box">
+                    <i class="fas fa-leaf service-icon floating delay-1" aria-hidden="true"></i>
+                    <h3>Impacto Ambiental</h3>
+                    <p>A reciclagem de uma tonelada de papel pode preservar até 22 árvores, gerar uma economia de aproximadamente 70% no consumo de energia elétrica e reduzir em até 74% a emissão de poluentes no ar, quando comparada à produção de papel a partir de matéria-prima virgem.</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-globe service-icon floating delay-2" aria-hidden="true"></i>
+                    <h3>Benefícios Sociais</h3>
+                    <p>A reciclagem inteligente gera empregos, promove inclusão social, fortalece a economia local e contribui para a construção de uma sociedade mais sustentável, limpa e consciente, dentro dos princípios da economia circular.</p>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section class="section">
             <div class="awareness">
-                <h3 class="section-title-PQ">Por que fazer coleta seletiva?</h3>
-                <div class="info-boxes">
-                    <div class="info-box">
-                        <p style="text-align: center; max-width: 1000px; margin: 0 auto;">
-                            <b>A coleta seletiva é o primeiro passo para uma gestão adequada dos resíduos sólidos. 
-                            Ela permite a reciclagem de materiais que seriam descartados, reduzindo o impacto ambiental, 
-                            economizando recursos naturais e gerando emprego e renda para catadores e cooperativas de reciclagem.</b>
-                        </p>
+                <h2 class="section-title">Por que fazer coleta seletiva?</h2>
+                <div class="info-box">
+                    <p>
+                        A coleta seletiva é o primeiro passo para uma gestão adequada dos resíduos sólidos. Ela permite a reciclagem de materiais que seriam descartados, reduzindo o impacto ambiental, economizando recursos naturais e gerando emprego e renda para catadores e cooperativas de reciclagem. Além disso, contribui para a educação ambiental da sociedade.
+                    </p>
+                    <div class="cta-button" style="margin-top: 2rem;">
+                        <a href="cadastro.html" class="btn btn-primary">Faça parte dessa mudança</a>
                     </div>
                 </div>
             </div>
@@ -97,71 +851,110 @@
 
         <section class="section">
             <div class="awareness">
-                <h3 class="section-title-QS">Quem somos?</h3>
-                <div class="info-boxes">
-                    <div class="info-box">
-                        <p style="text-align: center; max-width: 1000px; margin: 0 auto;">
-                            <b>O GTI (Get Trash Intelligence) é uma plataforma inovadora que conecta indivíduos que 
-                            precisam descartar resíduos de maneira adequada com profissionais especializados em 
-                            coleta seletiva. Nosso propósito é simplificar e otimizar o processo de reciclagem, 
-                            tornando-o mais acessível, prático e eficiente para todos.</b>
-                        </p>
-                    </div>
+                <h2 class="section-title">Quem somos?</h2>
+                <div class="info-box">
+                    <p>
+                        O GTI (Get Trash Intelligence) é uma plataforma inovadora que conecta indivíduos que precisam descartar resíduos de maneira adequada com profissionais especializados em coleta seletiva. Nosso propósito é simplificar e otimizar o processo de reciclagem, tornando-o mais acessível, prático e eficiente para todos. Combinamos tecnologia e sustentabilidade para criar soluções que beneficiam tanto o meio ambiente quanto a sociedade.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Missão, Visão e Valores -->
+        <section class="section" id="missao">
+            <h2 class="section-title">Nossa Essência</h2>
+            <div class="mvw-container">
+                <div class="mvw-box">
+                    <i class="fas fa-bullseye mvw-icon floating"></i>
+                    <h3>Missão</h3>
+                    <p>Facilitar e promover a gestão inteligente de resíduos, conectando pessoas e empresas a soluções sustentáveis de reciclagem, contribuindo para a preservação ambiental e o desenvolvimento social.</p>
+                </div>
+                <div class="mvw-box">
+                    <i class="fas fa-eye mvw-icon floating delay-1"></i>
+                    <h3>Visão</h3>
+                    <p>Ser referência nacional em soluções tecnológicas para gestão de resíduos, transformando a maneira como a sociedade lida com o lixo e promovendo a economia circular.</p>
+                </div>
+                <div class="mvw-box">
+                    <i class="fas fa-heart mvw-icon floating delay-2"></i>
+                    <h3>Valores</h3>
+                    <p>Sustentabilidade, Inovação, Transparência, Responsabilidade Social e Excelência no atendimento são os pilares que guiam nossas ações e decisões.</p>
                 </div>
             </div>
         </section>
 
         <!-- NOSSOS SERVIÇOS -->
         <section class="section" id="servicos">
-            <h2 class="section-title-ns">Nossos Serviços</h2>
+            <h2 class="section-title">Nossos Serviços</h2>
             <div class="services">
                 <!-- Metal -->
                 <div class="service-card" onclick="location.href='cadastro.html'" tabindex="0" role="button" aria-label="Serviço de reciclagem de metal">
-                    <img src="images/Caçamba GTI Amarelo.png" alt="Caçamba para reciclagem de metal">
+                    <img src="images/Caçamba GTI Amarelo.png" alt="Caçamba para reciclagem de metal" class="floating">
                     <h3>Metal</h3>
-                    <p>Reciclagem de latas, arames e objetos metálicos</p>
-                    <a href="cadastro.html" class="btn btn-secondary">Agendar</a>
+                    <p>Reciclagem de latas, arames e objetos metálicos com tecnologia de ponta para máxima eficiência.</p>
+                    <a href="cadastro.html" class="btn btn-secondary">Agendar Coleta</a>
                 </div>
 
                 <!-- Vidro -->
                 <div class="service-card" onclick="location.href='cadastro.html'" tabindex="0" role="button" aria-label="Serviço de reciclagem de vidro">
-                    <img src="images/Caçamba GTI Verde.png" alt="Caçamba para reciclagem de vidro">         
+                    <img src="images/Caçamba GTI Verde.png" alt="Caçamba para reciclagem de vidro" class="floating delay-1">         
                     <h3>Vidro</h3>
-                    <p>Garrafas, frascos e vidros planos</p>
-                    <a href="cadastro.html" class="btn btn-secondary">Agendar</a>
+                    <p>Garrafas, frascos e vidros planos coletados e processados com segurança e responsabilidade.</p>
+                    <a href="cadastro.html" class="btn btn-secondary">Agendar Coleta</a>
                 </div>
 
                 <!-- Plástico -->
                 <div class="service-card" onclick="location.href='cadastro.html'" tabindex="0" role="button" aria-label="Serviço de reciclagem de plástico">
-                    <img src="images/Caçamba GTI Vermelho.png" alt="Caçamba para reciclagem de plástico">
+                    <img src="images/Caçamba GTI Vermelho.png" alt="Caçamba para reciclagem de plástico" class="floating delay-2">
                     <h3>Plástico</h3>
-                    <p>Embalagens, sacolas e utensílios plásticos</p>
-                    <a href="cadastro.html" class="btn btn-secondary">Agendar</a>
+                    <p>Embalagens, sacolas e utensílios plásticos transformados em novos produtos de qualidade.</p>
+                    <a href="cadastro.html" class="btn btn-secondary">Agendar Coleta</a>
                 </div>
 
                 <!-- Papel -->
                 <div class="service-card" onclick="location.href='cadastro.html'" tabindex="0" role="button" aria-label="Serviço de reciclagem de papel">
-                    <img src="images/Caçamba GTI Azul.png" alt="Caçamba para reciclagem de papel">
+                    <img src="images/Caçamba GTI Azul.png" alt="Caçamba para reciclagem de papel" class="floating delay-1">
                     <h3>Papel</h3>
-                    <p>Jornais, revistas, caixas de papelão</p>
-                    <a href="cadastro.html" class="btn btn-secondary">Agendar</a>
+                    <p>Jornais, revistas, caixas de papelão reciclados com processos ecoeficientes.</p>
+                    <a href="cadastro.html" class="btn btn-secondary">Agendar Coleta</a>
                 </div>
 
                 <!-- Orgânico -->
                 <div class="service-card" onclick="location.href='cadastro.html'" tabindex="0" role="button" aria-label="Serviço de reciclagem de resíduos orgânicos">
-                    <img src="images/Caçamba GTI Marrom.png" alt="Caçamba para reciclagem de resíduos orgânicos">
+                    <img src="images/Caçamba GTI Marrom.png" alt="Caçamba para reciclagem de resíduos orgânicos" class="floating delay-2">
                     <h3>Orgânico</h3>
-                    <p>Restos de alimentos, cascas, podas</p>
-                    <a href="cadastro.html" class="btn btn-secondary">Agendar</a>
+                    <p>Restos de alimentos, cascas, podas transformados em compostagem de alta qualidade.</p>
+                    <a href="cadastro.html" class="btn btn-secondary">Agendar Coleta</a>
                 </div>
             </div>
         </section>
     </div>
 
-    <footer>
+    <footer id="contato">
         <div class="container">
-            <p>&copy; 2025 Get Trash Intelligence - Todos os direitos reservados</p>
-            <p>Contato: gettrashintelligence@gmail.com | (21) 98765-4321</p>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#servicos">Serviços</a>
+                    <a href="#sobre">Sobre Nós</a>
+                    <a href="#missao">Missão</a>
+                    <a href="politica-privacidade.html">Política de Privacidade</a>
+                    <a href="termos-uso.html">Termos de Uso</a>
+                </div>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> gettrashintelligence@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> (21) 98765-4321</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href= "https://www.facebook.com/?locale=pt_BR" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/watch?v=GPAYhCiBNAo" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <p class="copyright">&copy; 2025 Get Trash Intelligence - Todos os direitos reservados</p>
+            </div>
         </div>
     </footer>
 
@@ -187,12 +980,6 @@
         if (localStorage.getItem('darkMode') === 'ativado') {
             document.body.classList.add('dark-mode');
             darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-        }
-
-    
-        // Verifica se há preferência salva
-        if (localStorage.getItem('altoContraste') === 'ativado') {
-            document.documentElement.classList.add('alto-contraste');
         }
 
         // Controle de tamanho da fonte
@@ -231,6 +1018,51 @@
             fontSize = parseInt(savedFontSize);
             document.documentElement.style.fontSize = fontSize + 'px';
         }
+
+        // Smooth scrolling para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Efeito de aparecimento suave ao rolar
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.info-box, .service-card, .mvw-box');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Configura elementos para animação
+        document.querySelectorAll('.info-box, .service-card, .mvw-box').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        // Adiciona evento de scroll
+        window.addEventListener('scroll', animateOnScroll);
+        // Executa uma vez ao carregar
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>

@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTI - Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Login - GTI Soluções Sustentáveis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2E8B57">
+    <link rel="stylesheet" href="login.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <!-- Barra de acessibilidade -->
@@ -22,6 +18,7 @@
         <button class="accessibility-btn" id="dark-mode-btn">
             <i class="fas fa-moon"></i> Dark Mode
         </button>
+        
         <div class="font-size-controls">
             <span>Aumentar fonte:</span>
             <button class="font-size-btn" id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
@@ -36,56 +33,138 @@
                 <img src="images/logo principal.png" alt="GTI" class="logo-light">
                 <img src="images/logo logo-light.png" alt="GTI" class="logo-dark">
             </a>
+    
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#missao">Missão</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="user-actions">
+                <a href="login.html" class="btn-login">Entrar</a>
+                <a href="cadastro.html" class="btn-register">Cadastrar</a>
+            </div>
         </div>
     </header>
 
-    <!-- Botão Voltar adicionado -->
-    <div class="container">
-        <button class="btn-voltar" onclick="window.history.back()">
-            <i class="fas fa-arrow-left"></i> Voltar
-        </button>
-    </div>
-    <div class="container">
-        <section class="section">
-            <div class="form-container">
-                <h3 class="section-title-login">Faça login</h3>
-                <form id="loginForm" action="serviços.html" method="POST">
+    <main class="login-main">
+        <section class="login-section">
+            <div class="login-container">
+                <div class="login-header">
+                    <h1 class="login-title">Acesse sua conta</h1>
+                    <p class="login-subtitle">Gerencie seus agendamentos e acompanhe seu impacto ambiental</p>
+                </div>
+                
+                <form class="login-form" id="loginForm">
                     <div class="form-group">
-                        <label for="login">Login:</label>
-                        <input type="text" id="login" name="login" maxlength="6" minlength="6" required>
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="Digite seu e-mail" required>
+                        <i class="fas fa-envelope input-icon"></i>
                     </div>
                     
                     <div class="form-group">
-                        <label for="senha">Senha:</label>
-                        <input type="password" id="senha" name="senha" maxlength="8" minlength="8" required>
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="Digite sua senha" required>
+                        <i class="fas fa-lock input-icon"></i>
+                        <button type="button" class="toggle-password" aria-label="Mostrar senha">
+                            <i class="fas fa-eye"></i>
+                        </button>
                     </div>
                     
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <span>Lembrar de mim</span>
+                        </label>
+                        <a href="recuperar-senha.html" class="forgot-password">Esqueceu a senha?</a>
                     </div>
+                    
+                    <button type="submit" class="btn-login-submit">
+                        <span>Entrar</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div class="login-divider">
+                        <span>ou</span>
+                    </div>
+                    
+                    <!-- Google Sign-In -->
+                    <div id="g_id_onload"
+                         data-client_id="SEU_CLIENT_ID_AQUI"
+                         data-context="signin"
+                         data-ux_mode="popup"
+                         data-callback="handleCredentialResponse"
+                         data-auto_prompt="false">
+                    </div>
+                    <div class="g_id_signin"
+                         data-type="standard"
+                         data-shape="rectangular"
+                         data-theme="outline"
+                         data-text="signin_with"
+                         data-size="large"
+                         data-logo_alignment="left">
+                    </div>
+                    <!-- FIM Google Sign-In -->
                 </form>
                 
-                <div class="form-links">
-                    <p>Ainda não tem uma conta? <a href="cadastro.html">Fazer cadastro</a></p>
+                <div class="login-footer">
+                    <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+                </div>
+            </div>
+            
+            <div class="login-hero">
+                <div class="hero-content">
+                    <h2>Juntos por um planeta mais verde</h2>
+                    <p>Cada acesso representa um avanço concreto na construção de um futuro mais sustentável</p>
                 </div>
             </div>
         </section>
-    </div>
-    
+    </main>
+
     <footer>
         <div class="container">
-            <p>&copy; Get Trash Intelligence - Todos os direitos reservados</p>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html#servicos">Serviços</a>
+                    <a href="index.html#sobre">Sobre Nós</a>
+                    <a href="index.html#missao">Missão</a>
+                    <a href="politica-privacidade.html">Política de Privacidade</a>
+                    <a href="termos-uso.html">Termos de Uso</a>
+                </div>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> gettrashintelligence@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> (21) 98765-4321</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href= "https://www.facebook.com/?locale=pt_BR" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/watch?v=GPAYhCiBNAo" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <p class="copyright">&copy; 2025 Get Trash Intelligence - Todos os direitos reservados</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Controle do dark mode
+        // Controles de acessibilidade (iguais ao index)
         const darkModeBtn = document.getElementById('dark-mode-btn');
+        const fontIncrease = document.getElementById('font-increase');
+        const fontDecrease = document.getElementById('font-decrease');
+        const fontReset = document.getElementById('font-reset');
+        
+        // Dark Mode
         darkModeBtn.addEventListener('click', toggleDarkMode);
-
+        
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
-            
             if (document.body.classList.contains('dark-mode')) {
                 darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
                 localStorage.setItem('darkMode', 'ativado');
@@ -94,60 +173,70 @@
                 localStorage.removeItem('darkMode');
             }
         }
-
-        // Verifica preferência salva
+        
+        // Verifica dark mode ao carregar
         if (localStorage.getItem('darkMode') === 'ativado') {
             document.body.classList.add('dark-mode');
             darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
         }
-
+        
         // Controle de tamanho da fonte
-        const fontIncrease = document.getElementById('font-increase');
-        const fontDecrease = document.getElementById('font-decrease');
-        const fontReset = document.getElementById('font-reset');
         let fontSize = 16;
-
-        fontIncrease.addEventListener('click', function() {
+        
+        fontIncrease.addEventListener('click', () => {
             if (fontSize < 24) {
                 fontSize += 2;
                 document.documentElement.style.fontSize = fontSize + 'px';
                 localStorage.setItem('fontSize', fontSize);
             }
         });
-
-        fontDecrease.addEventListener('click', function() {
+        
+        fontDecrease.addEventListener('click', () => {
             if (fontSize > 12) {
                 fontSize -= 2;
                 document.documentElement.style.fontSize = fontSize + 'px';
                 localStorage.setItem('fontSize', fontSize);
             }
         });
-
-        fontReset.addEventListener('click', function() {
+        
+        fontReset.addEventListener('click', () => {
             fontSize = 16;
             document.documentElement.style.fontSize = fontSize + 'px';
             localStorage.setItem('fontSize', fontSize);
         });
-
-        // Verifica tamanho salvo
+        
+        // Verifica tamanho da fonte salvo
         const savedFontSize = localStorage.getItem('fontSize');
         if (savedFontSize) {
             fontSize = parseInt(savedFontSize);
             document.documentElement.style.fontSize = fontSize + 'px';
         }
-
-        // Validação do formulário de login
-        const loginForm = document.getElementById('loginForm');
-
-        loginForm.addEventListener('submit', function(event) {
-            const login = document.getElementById('login').value.trim();
-            const senha = document.getElementById('senha').value.trim();
-
-            if (login.length !== 6 || senha.length !== 8) {
-                event.preventDefault(); // Impede o envio do formulário
-                alert('Por favor, preencha o login com 6 caracteres e a senha com 8 caracteres.');
-            }
+        
+        // Mostrar/ocultar senha
+        const togglePassword = document.querySelector('.toggle-password');
+        const passwordInput = document.getElementById('password');
+        
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
         });
+        
+        // Validação do formulário
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Adicione aqui a lógica de login
+            console.log('Formulário enviado!');
+        });
+        
+        // Callback do Google Sign-In
+        function handleCredentialResponse(response) {
+            // Aqui você pode enviar o token para seu backend se desejar
+            alert('Login com Google realizado! Redirecionando...');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        }
     </script>
 </body>
 </html>
