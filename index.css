@@ -49,20 +49,7 @@
   --border-radius-lg: 16px;
   --border-radius-full: 9999px;
 }
-
-/* Dark Mode */
-.dark-mode {
-  --primary-green: #3CB371;
-  --primary-green-dark: #2E8B57;
-  --white: #121212;
-  --black: #F0F0F0;
-  --dark-gray: #1A1A1A;
-  --medium-gray: #B3B3B3;
-  --light-gray: #2D2D2D;
-  --glass-bg: rgba(26, 26, 26, 0.85);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
+ 
 /* ======================
    BASE STYLES & RESET
    ====================== */
