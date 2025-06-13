@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - GTI Soluções Sustentáveis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="servicos.css">
+     <!-- ESTILOS DO MAPA  -->
+    <style>
+        .status-badge {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .status-available { background-color: #2E8B57; }
+        .status-warning { background-color: #FFA500; }
+        .status-full { background-color: #FF4500; }
+        .status-offline { background-color: #808080; }
+
+        .refresh-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            background: white;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .map-container {
+            height: 500px;
+            width: 100%;
+            margin: 20px 0;
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+</head>
+<body>
+    <!-- Barra de acessibilidade -->
+    <div class="accessibility-bar">
+        <button class="accessibility-btn" id="dark-mode-btn">
+            <i class="fas fa-moon"></i> Dark Mode
+        </button>
+        
+        <div class="font-size-controls">
+            <span>Aumentar fonte:</span>
+            <button class="font-size-btn" id="font-increase">A+</button>
+            <button class="font-size-btn" id="font-decrease">A-</button>
+            <button class="font-size-btn" id="font-reset">A</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo principal.png" alt="GTI" class="logo-light">
+                <img src="images/logo logo-light.png" alt="GTI" class="logo-dark">
+            </a>
+
+            <nav class="menu">
+                <ul>
+                    <li><a href="#servicos-top">Serviços</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#missao">Missão</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <!-- Esta div será atualizada dinamicamente -->
+            <div class="user-actions">
+                <!-- Conteúdo será inserido pelo JavaScript -->
+            </div>
+        </div>
+    </header>
+
+    <main class="services-page">
+        <!-- Hero Section -->
+        <section class="services-hero">
+            <div class="container">
+                <h1 class="hero-title">Nossos Serviços de Coleta</h1>
+                <p class="hero-subtitle">Soluções completas para gestão de resíduos</p>
+            </div>
+        </section>
+
+        <div class="container" id="servicos-top">
+            <!-- Navegação interna -->
+            <nav class="services-nav">
+                <ul>
+                    <li><a href="#tipos-cacambas" class="container"><i class="fas fa-trash-alt"></i> Tipos de Caçambas</a></li>
+                    <li><a href="#agendamento" class="container"><i class="fas fa-calendar-alt"></i> Dias e Horários</a></li>
+                    <li><a href="#planos" class="container"><i class="fas fa-star"></i> Planos Disponíveis</a></li>
+                    <li><a href="#mapa-coleta" class="container"><i class="fas fa-map-pin"></i> Pontos de coleta</a></li>
+                </ul>
+            </nav>
+
+            <!-- Seção Tipos de Caçambas -->
+            <section id="tipos-cacambas" class="services-section">
+                <h2 class="section-title">Tipos de Caçambas</h2>
+                <p class="section-description">Oferecemos caçambas especializadas para cada tipo de resíduo</p>
+                
+                <div class="cacambas-grid">
+                    <!-- Metal -->
+                    <div class="cacamba-card">
+                        <div class="cacamba-header" style="background-color: #FFD700;">
+                            <img src="images/Caçamba GTI Amarelo.png" alt="Caçamba para Metal">
+                        </div>
+                        <div class="cacamba-body">
+                            <h3>Metal</h3>
+                            <ul class="cacamba-features">
+                                <li><i class="fas fa-check"></i> Latas de alumínio</li>
+                                <li><i class="fas fa-check"></i> Arames e fios</li>
+                                <li><i class="fas fa-check"></i> Objetos metálicos</li>
+                                <li><i class="fas fa-check"></i> Eletrodomésticos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Vidro -->
+                    <div class="cacamba-card">
+                        <div class="cacamba-header" style="background-color: #2E8B57;">
+                            <img src="images/Caçamba GTI Verde.png" alt="Caçamba para Vidro">
+                        </div>
+                        <div class="cacamba-body">
+                            <h3>Vidro</h3>
+                            <ul class="cacamba-features">
+                                <li><i class="fas fa-check"></i> Garrafas</li>
+                                <li><i class="fas fa-check"></i> Frascos</li>
+                                <li><i class="fas fa-check"></i> Vidros planos</li>
+                                <li><i class="fas fa-check"></i> Espelhos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Plástico -->
+                    <div class="cacamba-card">
+                        <div class="cacamba-header" style="background-color: #FF4500;">
+                            <img src="images/Caçamba GTI Vermelho.png" alt="Caçamba para Plástico">
+                        </div>
+                        <div class="cacamba-body">
+                            <h3>Plástico</h3>
+                            <ul class="cacamba-features">
+                                <li><i class="fas fa-check"></i> Embalagens</li>
+                                <li><i class="fas fa-check"></i> Sacolas</li>
+                                <li><i class="fas fa-check"></i> Utensílios</li>
+                                <li><i class="fas fa-check"></i> Brinquedos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Papel -->
+                    <div class="cacamba-card">
+                        <div class="cacamba-header" style="background-color: #1E90FF;">
+                            <img src="images/Caçamba GTI Azul.png" alt="Caçamba para Papel">
+                        </div>
+                        <div class="cacamba-body">
+                            <h3>Papel</h3>
+                            <ul class="cacamba-features">
+                                <li><i class="fas fa-check"></i> Jornais</li>
+                                <li><i class="fas fa-check"></i> Revistas</li>
+                                <li><i class="fas fa-check"></i> Caixas</li>
+                                <li><i class="fas fa-check"></i> Papelão</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Orgânico -->
+                    <div class="cacamba-card">
+                        <div class="cacamba-header" style="background-color: #8B4513;">
+                            <img src="images/Caçamba GTI Marrom.png" alt="Caçamba para Orgânicos">
+                        </div>
+                        <div class="cacamba-body">
+                            <h3>Orgânico</h3>
+                            <ul class="cacamba-features">
+                                <li><i class="fas fa-check"></i> Restos de alimentos</li>
+                                <li><i class="fas fa-check"></i> Cascas</li>
+                                <li><i class="fas fa-check"></i> Podas</li>
+                                <li><i class="fas fa-check"></i> Folhas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Dias e Horários -->
+            <section id="agendamento" class="services-section">
+                <h2 class="section-title">Dias e Horários de Coleta</h2>
+                <p class="section-description">Agendamento flexível conforme sua região</p>
+                
+                <div class="tabs-container">
+                    <div class="tabs">
+                        <button class="tab-button active" data-tab="zona-oeste-norte">Zona Oeste/Norte</button>
+                        <button class="tab-button" data-tab="zona-sul-centro">Zona Sul/Centro</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="zona-oeste-norte">
+                        <div class="schedule-card">
+                            <div class="schedule-header">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h3>Segundas e Quartas</h3>
+                            </div>
+                            <div class="schedule-times">
+                                <p><i class="fas fa-clock"></i> Manhã: 8h - 12h</p>
+                                <p><i class="fas fa-clock"></i> Tarde: 14h - 18h</p>
+                            </div>
+                            <div class="neighborhoods">
+                                <h4>Bairros atendidos:</h4>
+                                <ul>
+                                    <li>Barra da Tijuca</li>
+                                    <li>Jacarepaguá</li>
+                                    <li>Recreio</li>
+                                    <li>Tijuca</li>
+                                    <li>Madureira</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-card">
+                            <div class="schedule-header">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h3>Sextas</h3>
+                            </div>
+                            <div class="schedule-times">
+                                <p><i class="fas fa-clock"></i> Manhã: 7h - 11h</p>
+                                <p><i class="fas fa-clock"></i> Tarde: 13h - 17h</p>
+                            </div>
+                            <div class="neighborhoods">
+                                <h4>Bairros atendidos:</h4>
+                                <ul>
+                                    <li>Campo Grande</li>
+                                    <li>Santa Cruz</li>
+                                    <li>Bangu</li>
+                                    <li>Realengo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="zona-sul-centro">
+                        <div class="schedule-card">
+                            <div class="schedule-header">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h3>Terças e Quintas</h3>
+                            </div>
+                            <div class="schedule-times">
+                                <p><i class="fas fa-clock"></i> Manhã: 9h - 13h</p>
+                                <p><i class="fas fa-clock"></i> Tarde: 15h - 19h</p>
+                            </div>
+                            <div class="neighborhoods">
+                                <h4>Bairros atendidos:</h4>
+                                <ul>
+                                    <li>Copacabana</li>
+                                    <li>Ipanema</li>
+                                    <li>Leblon</li>
+                                    <li>Botafogo</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-card">
+                            <div class="schedule-header">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h3>Sábados</h3>
+                            </div>
+                            <div class="schedule-times">
+                                <p><i class="fas fa-clock"></i> Manhã: 8h - 12h</p>
+                            </div>
+                            <div class="neighborhoods">
+                                <h4>Bairros atendidos:</h4>
+                                <ul>
+                                    <li>Centro</li>
+                                    <li>Lapa</li>
+                                    <li>Glória</li>
+                                    <li>Catete</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Planos Disponíveis -->
+            <section id="planos" class="services-section">
+                <h2 class="section-title">Planos Disponíveis</h2>
+                <p class="section-description">Escolha o plano que melhor atende suas necessidades</p>
+                
+                <div class="plans-container">
+                    <!-- Plano Básico -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Básico</h3>
+                            <div class="plan-price">
+                                <span class="price">R$ 99</span>
+                                <span class="period">/mês</span>
+                            </div>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> 1 coleta semanal</li>
+                            <li><i class="fas fa-check"></i> Até 2 tipos de resíduos</li>
+                            <li><i class="fas fa-check"></i> Suporte básico</li>
+                            <li><i class="fas fa-check"></i> Relatório Básico</li>
+                            <li><i class="fas fa-times"></i> Certificado ecológico</li>
+                        </ul>
+                        <a href="pagamento.html?plano=basico" class="btn-plan">Contratar</a>
+                    </div>
+                    
+                    <!-- Plano Premium -->
+                    <div class="plan-card popular">
+                        <div class="popular-badge">MAIS POPULAR</div>
+                        <div class="plan-header">
+                            <h3>Premium</h3>
+                            <div class="plan-price">
+                                <span class="price">R$ 199</span>
+                                <span class="period">/mês</span>
+                            </div>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> 2 coletas semanais</li>
+                            <li><i class="fas fa-check"></i> Até 4 tipos de resíduos</li>
+                            <li><i class="fas fa-check"></i> Relatório detalhado</li>
+                            <li><i class="fas fa-check"></i> Suporte prioritário</li>
+                            <li><i class="fas fa-check"></i> Certificado ecológico</li>
+                        </ul>
+                        <a href="pagamento.html?plano=premium" class="btn-plan">Contratar</a>
+                    </div>
+                    
+                    <!-- Plano Empresarial -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Empresarial</h3>
+                            <div class="plan-price">
+                                <span class="price">Sob consulta</span>
+                            </div>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Coletas diárias</li>
+                            <li><i class="fas fa-check"></i> Todos tipos de resíduos</li>
+                            <li><i class="fas fa-check"></i> Relatório personalizado</li>
+                            <li><i class="fas fa-check"></i> Suporte 24/7</li>
+                            <li><i class="fas fa-check"></i> Consultoria especializada</li>
+                        </ul>
+                        <a href="empresarial.html" class="btn-plan">Solicitar Contato</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mapa-coleta" class="services-section">
+                <h2 class="section-title">Pontos de Coleta na sua Região</h2>
+                <p class="section-description">Encontre os locais mais próximos para descarte correto</p>
+                
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+                
+                <div class="map-info">
+                    <p>Utilize o mapa para encontrar os pontos de coleta mais próximos de você. Os marcadores coloridos indicam:</p>
+                    <ul>
+                        <li><span style="color: green;">●</span> Disponível (≤ 70% capacidade)</li>
+                        <li><span style="color: red;">●</span>Quase cheio (70-90%)</li>
+                        <li><span style="color: yellow;">●</span> Cheio (> 90%)</li>
+                        <li><span style="color: rgb(0, 0, 0);">●</span> Em manutenção</li>
+                    </ul>
+                    <p>Clique nos marcadores para mais informações sobre cada local.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <!-- Botão de Chat -->
+    <div class="chat-button">
+        <i class="fas fa-comment-dots" href="chatbot.html"></i>
+    </div>
+    <a href="chatbot.html" class="chat-button">🤖</a>
+
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html#servicos">Serviços</a>
+                    <a href="index.html#sobre">Sobre Nós</a>
+                    <a href="index.html#missao">Missão</a>
+                    <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>                    
+                    <a href="termos-de-uso.html" target="_blank">Termos de Uso</a>
+                </div>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> gettrashintelligence@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> (21) 98765-4321</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href= "https://www.facebook.com/?locale=pt_BR" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/watch?v=GPAYhCiBNAo" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <p class="copyright">&copy; 2025 Get Trash Intelligence - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+     <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVpjmkgVSlFPjR3mDOM9kdLGio8iSlDaQ&libraries=geometry&callback=initMap" async defer></script>
+
+    <script>
+        // Controle do dark mode
+        const darkModeBtn = document.getElementById('dark-mode-btn');
+        darkModeBtn.addEventListener('click', toggleDarkMode);
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            
+            // Atualiza o ícone do botão
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                localStorage.setItem('darkMode', 'ativado');
+            } else {
+                darkModeBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+                localStorage.removeItem('darkMode');
+            }
+        }
+
+        // Verifica se há dark mode ativo no carregamento
+        if (localStorage.getItem('darkMode') === 'ativado') {
+            document.body.classList.add('dark-mode');
+            darkModeBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        }
+
+        // Controle de tamanho da fonte
+        const fontIncrease = document.getElementById('font-increase');
+        const fontDecrease = document.getElementById('font-decrease');
+        const fontReset = document.getElementById('font-reset');
+        
+        // Tamanho base da fonte (16px)
+        let fontSize = 16;
+
+        fontIncrease.addEventListener('click', function() {
+            if (fontSize < 24) {
+                fontSize += 2;
+                document.documentElement.style.fontSize = fontSize + 'px';
+                localStorage.setItem('fontSize', fontSize);
+            }
+        });
+
+        fontDecrease.addEventListener('click', function() {
+            if (fontSize > 12) {
+                fontSize -= 2;
+                document.documentElement.style.fontSize = fontSize + 'px';
+                localStorage.setItem('fontSize', fontSize);
+            }
+        });
+
+        fontReset.addEventListener('click', function() {
+            fontSize = 16;
+            document.documentElement.style.fontSize = fontSize + 'px';
+            localStorage.setItem('fontSize', fontSize);
+        });
+
+        // Verifica se há tamanho de fonte salvo
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            fontSize = parseInt(savedFontSize);
+            document.documentElement.style.fontSize = fontSize + 'px';
+        }
+        // =============================================
+        // SISTEMA DE MAPA COM STATUS (novo)
+        // =============================================
+const ecopontos = [
+   // Lista de Ecopontos Reais no Rio de Janeiro (coordenadas oficiais aproximadas)
+    // Zona Norte
+    {
+        id: 1,
+        nome: "Ecoponto Tijuca",
+        endereco: "Rua Conde de Bonfim, 451 - Tijuca",
+        posicao: { lat: -22.9281, lng: -43.2337 },
+        materiais: ["metal", "vidro", "papel", "plástico", "eletrônicos"],
+        horario: "08h às 18h (terça a domingo)",
+        status: { capacidade: 35, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 2,
+        nome: "Ecoponto Méier",
+        endereco: "Rua Dias da Cruz, 399 - Méier",
+        posicao: { lat: -22.9028, lng: -43.2825 },
+        materiais: ["metal", "vidro", "papel", "plástico"],
+        horario: "08h às 17h (segunda a sábado)",
+        status: { capacidade: 68, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+
+    // Zona Sul
+    {
+        id: 3,
+        nome: "Ecoponto Botafogo",
+        endereco: "Rua São Clemente, 155 - Botafogo",
+        posicao: { lat: -22.9508, lng: -43.1865 },
+        materiais: ["metal", "vidro", "papel", "plástico", "óleo"],
+        horario: "09h às 19h (todos os dias)",
+        status: { capacidade: 72, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 4,
+        nome: "Ecoponto Copacabana",
+        endereco: "Rua Siqueira Campos, 143 - Copacabana",
+        posicao: { lat: -22.9702, lng: -43.1827 },
+        materiais: ["metal", "vidro", "papel", "eletrônicos"],
+        horario: "08h às 17h (segunda a sexta)",
+        status: { capacidade: 89, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+
+    // Zona Oeste
+    {
+        id: 5,
+        nome: "Ecoponto Barra da Tijuca",
+        endereco: "Av. das Américas, 5000 - Barra da Tijuca",
+        posicao: { lat: -22.9996, lng: -43.3568 },
+        materiais: ["metal", "vidro", "papel", "plástico", "óleo", "eletrônicos"],
+        horario: "07h às 19h (todos os dias)",
+        status: { capacidade: 42, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 6,
+        nome: "Ecoponto Recreio",
+        endereco: "Av. Alfredo Balthazar da Silveira, 310 - Recreio",
+        posicao: { lat: -23.0265, lng: -43.4819 },
+        materiais: ["metal", "vidro", "papel", "plástico"],
+        horario: "08h às 16h (terça a domingo)",
+        status: { capacidade: 55, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+
+    // Centro
+    {
+        id: 7,
+        nome: "Ecoponto Centro",
+        endereco: "Rua do Ouvidor, 150 - Centro",
+        posicao: { lat: -22.9068, lng: -43.1729 },
+        materiais: ["metal", "vidro", "papel", "plástico", "eletrônicos"],
+        horario: "08h às 17h (segunda a sábado)",
+        status: { capacidade: 78, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 8,
+        nome: "Ecoponto Lapa",
+        endereco: "Rua do Lavradio, 120 - Lapa",
+        posicao: { lat: -22.9113, lng: -43.1856 },
+        materiais: ["metal", "vidro", "papel"],
+        horario: "09h às 15h (quarta a domingo)",
+        status: { capacidade: 91, operacional: false, ultimaAtualizacao: new Date().toISOString() }
+    },
+
+    // Mais ecopontos (adicionei 12 adicionais)
+    {
+        id: 9,
+        nome: "Ecoponto Madureira",
+        endereco: "Rua Soares Caldeira, 115 - Madureira",
+        posicao: { lat: -22.8756, lng: -43.3439 },
+        materiais: ["metal", "vidro", "papel"],
+        horario: "09h às 16h (quarta a domingo)",
+        status: { capacidade: 60, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 10,
+        nome: "Ecoponto Bangu",
+        endereco: "Rua Silva Cardoso, 344 - Bangu",
+        posicao: { lat: -22.8836, lng: -43.4731 },
+        materiais: ["metal", "vidro", "papel", "plástico"],
+        horario: "08h às 16h (terça a sexta)",
+        status: { capacidade: 30, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 11,
+        nome: "Ecoponto Campo Grande",
+        endereco: "Av. Cesário de Melo, 3219 - Campo Grande",
+        posicao: { lat: -22.9076, lng: -43.6273 },
+        materiais: ["metal", "vidro", "papel", "plástico", "óleo"],
+        horario: "08h às 17h (todos os dias)",
+        status: { capacidade: 45, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 12,
+        nome: "Ecoponto Santa Cruz",
+        endereco: "Rua Felipe Cardoso, 650 - Santa Cruz",
+        posicao: { lat: -22.9125, lng: -43.6856 },
+        materiais: ["metal", "vidro", "papel"],
+        horario: "08h às 15h (segunda a sexta)",
+        status: { capacidade: 82, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 13,
+        nome: "Ecoponto Ipanema",
+        endereco: "Rua Visconde de Pirajá, 550 - Ipanema",
+        posicao: { lat: -22.9839, lng: -43.2087 },
+        materiais: ["metal", "vidro", "papel", "plástico", "eletrônicos"],
+        horario: "09h às 18h (todos os dias)",
+        status: { capacidade: 25, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 14,
+        nome: "Ecoponto Leblon",
+        endereco: "Rua General Urquiza, 188 - Leblon",
+        posicao: { lat: -22.9803, lng: -43.2231 },
+        materiais: ["metal", "vidro", "papel", "plástico"],
+        horario: "10h às 19h (terça a domingo)",
+        status: { capacidade: 50, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 15,
+        nome: "Ecoponto Jacarepaguá",
+        endereco: "Av. Geremário Dantas, 900 - Jacarepaguá",
+        posicao: { lat: -22.9478, lng: -43.3675 },
+        materiais: ["metal", "vidro", "papel", "plástico"],
+        horario: "08h às 16h (segunda a sexta)",
+        status: { capacidade: 65, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 16,
+        nome: "Ecoponto Ilha do Governador",
+        endereco: "Rua Cambaúba, 25 - Ilha do Governador",
+        posicao: { lat: -22.8123, lng: -43.2189 },
+        materiais: ["metal", "vidro", "papel"],
+        horario: "08h às 15h (terça a sábado)",
+        status: { capacidade: 40, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 17,
+        nome: "Ecoponto Ramos",
+        endereco: "Rua Uranos, 120 - Ramos",
+        posicao: { lat: -22.8372, lng: -43.2598 },
+        materiais: ["metal", "vidro", "papel", "plástico"],
+        horario: "09h às 16h (quarta a domingo)",
+        status: { capacidade: 75, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 18,
+        nome: "Ecoponto Penha",
+        endereco: "Rua Larga, 200 - Penha",
+        posicao: { lat: -22.8476, lng: -43.2901 },
+        materiais: ["metal", "vidro", "papel"],
+        horario: "08h às 17h (segunda a sexta)",
+        status: { capacidade: 58, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+        id: 19,
+        nome: "Ecoponto Vila Valqueire",
+        endereco: "Rua Álvaro Alberto, 300 - Vila Valqueire",
+        posicao: { lat: -22.8789, lng: -43.3725 },
+        materiais: ["metal", "vidro", "papel", "plástico", "eletrônicos"],
+        horario: "09h às 18h (terça a domingo)",
+        status: { capacidade: 33, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+    },
+    {
+            id: 20,
+            nome: "Ecoponto Realengo",
+            endereco: "Rua General San Martin, 400 - Realengo",
+            posicao: { lat: -22.8647, lng: -43.4419 },
+            materiais: ["metal", "vidro", "papel", "plástico"],
+            horario: "08h às 16h (segunda a sábado)",
+            status: { capacidade: 47, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+        }
+,{	
+    id: 21,
+    nome: "Ecoponto Anchieta",
+    endereco: "Rua São Francisco Xavier, 700 - Anchieta",
+    posicao: { lat: -22.8564, lng: -43.3892 },
+    materiais: ["metal", "vidro", "papel"],
+    horario: "08h às 16h (segunda a sexta)",
+    status: { capacidade: 50, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 22,
+    nome: "Ecoponto Pavuna",
+    endereco: "Av. Pastor Martin Luther King Jr., 12000 - Pavuna",
+    posicao: { lat: -22.8217, lng: -43.4183 },
+    materiais: ["metal", "vidro", "papel", "plástico"],
+    horario: "09h às 17h (terça a domingo)",
+    status: { capacidade: 40, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 23,
+    nome: "Ecoponto Rocha Miranda",
+    endereco: "Rua São Jerônimo, 450 - Rocha Miranda",
+    posicao: { lat: -22.8375, lng: -43.4119 },
+    materiais: ["metal", "vidro", "papel"],
+    horario: "08h às 15h (segunda a sexta)",
+    status: { capacidade: 60, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+
+,{
+    id: 24,
+    nome: "Ecoponto Guaratiba",
+    endereco: "Estrada do Magarça, 1500 - Guaratiba",
+    posicao: { lat: -23.0064, lng: -43.6158 },
+    materiais: ["metal", "vidro", "papel", "plástico", "óleo"],
+    horario: "08h às 16h (terça a sábado)",
+    status: { capacidade: 35, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 25,
+    nome: "Ecoponto Taquara",
+    endereco: "Rua Conde de Irajá, 800 - Taquara",
+    posicao: { lat: -22.9267, lng: -43.4025 },
+    materiais: ["metal", "vidro", "papel", "eletrônicos"],
+    horario: "09h às 18h (quarta a domingo)",
+    status: { capacidade: 55, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 26,
+    nome: "Ecoponto Vargem Grande",
+    endereco: "Estrada do Camorim, 2000 - Vargem Grande",
+    posicao: { lat: -23.0289, lng: -43.5236 },
+    materiais: ["metal", "vidro", "papel"],
+    horario: "08h às 15h (segunda a sexta)",
+    status: { capacidade: 25, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{  
+    id: 27,
+    nome: "Ecoponto Leme",
+    endereco: "Rua Gustavo Sampaio, 200 - Leme",
+    posicao: { lat: -22.9667, lng: -43.1689 },
+    materiais: ["metal", "vidro", "papel", "plástico"],
+    horario: "09h às 17h (todos os dias)",
+    status: { capacidade: 30, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 28,
+    nome: "Ecoponto Urca",
+    endereco: "Praia da Urca, 50 - Urca",
+    posicao: { lat: -22.9472, lng: -43.1653 },
+    materiais: ["metal", "vidro", "papel"],
+    horario: "08h às 16h (terça a domingo)",
+    status: { capacidade: 20, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 29,
+    nome: "Ecoponto São João de Meriti",
+    endereco: "Av. Automóvel Clube, 1000 - São João de Meriti",
+    posicao: { lat: -22.8039, lng: -43.3725 },
+    materiais: ["metal", "vidro", "papel", "plástico", "eletrônicos"],
+    horario: "08h às 17h (segunda a sábado)",
+    status: { capacidade: 70, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 30,
+    nome: "Ecoponto Nilópolis",
+    endereco: "Rua Pedro Alves, 300 - Nilópolis",
+    posicao: { lat: -22.8136, lng: -43.4139 },
+    materiais: ["metal", "vidro", "papel"],
+    horario: "09h às 16h (quarta a domingo)",
+    status: { capacidade: 45, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 31,
+    nome: "Ecoponto Paquetá",
+    endereco: "Praia dos Tamoios, 10 - Ilha de Paquetá",
+    posicao: { lat: -22.7586, lng: -43.1053 },
+    materiais: ["metal", "vidro", "papel", "plástico"],
+    horario: "09h às 15h (terça a domingo)",
+    status: { capacidade: 15, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+//queimados
+,{
+    id: 32,
+    nome: "Ecoponto Queimados Centro",
+    endereco: "Rua Vereador Marinho Hemetério, 100 - Centro, Queimados",
+    posicao: { lat: -22.7169, lng: -43.5553 },
+    materiais: ["metal", "vidro", "papel", "plástico"],
+    horario: "08h às 16h (segunda a sexta)",
+    status: { capacidade: 50, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 33,
+    nome: "Ecoponto Queimados Vila Pacaembu",
+    endereco: "Estrada da Pacaembu, 500 - Vila Pacaembu, Queimados",
+    posicao: { lat: -22.7245, lng: -43.5682 },
+    materiais: ["metal", "vidro", "eletrônicos"],
+    horario: "09h às 17h (terça a sábado)",
+    status: { capacidade: 40, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 34,
+    nome: "Ecoponto Queimados Jardim Queimados",
+    endereco: "Rua dos Coqueiros, 200 - Jardim Queimados",
+    posicao: { lat: -22.7108, lng: -43.5634 },
+    materiais: ["papel", "plástico", "óleo"],
+    horario: "08h às 15h (quarta a domingo)",
+    status: { capacidade: 30, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 35,
+    nome: "Ecoponto Nova Iguaçu Centro",
+    endereco: "Av. Gov. Portela, 1000 - Centro, Nova Iguaçu",
+    posicao: { lat: -22.7592, lng: -43.4519 },
+    materiais: ["metal", "vidro", "papel", "plástico", "eletrônicos"],
+    horario: "08h às 17h (segunda a sábado)",
+    status: { capacidade: 60, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 36,
+    nome: "Ecoponto Nova Iguaçu Vila de Cava",
+    endereco: "Rua Itacolomi, 300 - Vila de Cava, Nova Iguaçu",
+    posicao: { lat: -22.7756, lng: -43.4678 },
+    materiais: ["metal", "vidro", "papel"],
+    horario: "09h às 16h (terça a domingo)",
+    status: { capacidade: 45, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 37,
+    nome: "Ecoponto Nova Iguaçu KM 32",
+    endereco: "Estrada Adrianópolis, 1500 - KM 32, Nova Iguaçu",
+    posicao: { lat: -22.7483, lng: -43.4821 },
+    materiais: ["plástico", "papel", "óleo"],
+    horario: "08h às 15h (segunda a sexta)",
+    status: { capacidade: 55, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 38,
+    nome: "Ecoponto Nova Iguaçu Austin",
+    endereco: "Rua Coronel Bernardino de Melo, 200 - Austin, Nova Iguaçu",
+    posicao: { lat: -22.7367, lng: -43.4389 },
+    materiais: ["metal", "vidro", "eletrônicos"],
+    horario: "10h às 18h (quarta a domingo)",
+    status: { capacidade: 35, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 39,
+    nome: "Ecoponto São João de Meriti Centro",
+    endereco: "Av. Presidente Lincoln, 500 - Centro, São João de Meriti",
+    posicao: { lat: -22.8039, lng: -43.3725 },
+    materiais: ["metal", "vidro", "papel", "plástico"],
+    horario: "08h às 16h (segunda a sexta)",
+    status: { capacidade: 50, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 40,
+    nome: "Ecoponto Belford Roxo",
+    endereco: "Rua Professor Alfredo Gonçalves, 200 - Centro, Belford Roxo",
+    posicao: { lat: -22.7639, lng: -43.3992 },
+    materiais: ["metal", "papel", "plástico"],
+    horario: "09h às 17h (terça a sábado)",
+    status: { capacidade: 40, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 41,
+    nome: "Ecoponto Mesquita",
+    endereco: "Rua Arthur Oliveira Vecchi, 150 - Centro, Mesquita",
+    posicao: { lat: -22.7825, lng: -43.4297 },
+    materiais: ["vidro", "papel", "eletrônicos"],
+    horario: "08h às 15h (segunda a sexta)",
+    status: { capacidade: 30, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 42,
+    nome: "Ecoponto Nova Iguaçu Cabuçu",
+    endereco: "Rua Maria Quitéria, 450 - Cabuçu, Nova Iguaçu",
+    posicao: { lat: -22.7211, lng: -43.4467 },
+    materiais: ["metal", "plástico", "eletrônicos"],
+    horario: "08h às 16h (segunda a sábado)",
+    status: { capacidade: 48, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 43,
+    nome: "Ecoponto Nova Iguaçu Bairro da Luz",
+    endereco: "Estrada do Mendanha, 1200 - Bairro da Luz, Nova Iguaçu",
+    posicao: { lat: -22.7328, lng: -43.4914 },
+    materiais: ["vidro", "papel", "óleo"],
+    horario: "09h às 17h (terça a domingo)",
+    status: { capacidade: 52, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 44,
+    nome: "Ecoponto Queimados Fanchem",
+    endereco: "Rua Professor Manoel José Ferreira, 200 - Fanchem, Queimados",
+    posicao: { lat: -22.7075, lng: -43.5589 },
+    materiais: ["metal", "vidro", "papel", "plástico", "eletrônicos"],
+    horario: "07h às 15h (segunda a sexta)",
+    status: { capacidade: 38, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 45,
+    nome: "Ecoponto Duque de Caxias Centro",
+    endereco: "Av. Brigadeiro Lima e Silva, 1000 - Centro, Duque de Caxias",
+    posicao: { lat: -22.7858, lng: -43.3117 },
+    materiais: ["metal", "vidro", "papel", "plástico", "óleo"],
+    horario: "08h às 17h (segunda a sábado)",
+    status: { capacidade: 65, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 46,
+    nome: "Ecoponto Duque de Caxias Xerém",
+    endereco: "Estrada de Xerém, 800 - Xerém, Duque de Caxias",
+    posicao: { lat: -22.6289, lng: -43.2819 },
+    materiais: ["metal", "papel", "eletrônicos"],
+    horario: "09h às 16h (terça a domingo)",
+    status: { capacidade: 42, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 47, 
+    nome: "Ecoponto Duque de Caxias Jardim Primavera",
+    endereco: "Rua Albino Imparato, 300 - Jardim Primavera, Duque de Caxias",
+    posicao: { lat: -22.7522, lng: -43.3425 },
+    materiais: ["vidro", "plástico", "óleo"],
+    horario: "08h às 15h (quarta a domingo)",
+    status: { capacidade: 30, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 48,
+    nome: "Ecoponto Japeri Centro",
+    endereco: "Rua Manoel de Abreu, 150 - Centro, Japeri",
+    posicao: { lat: -22.6436, lng: -43.6533 },
+    materiais: ["metal", "papel", "plástico"],
+    horario: "08h às 16h (segunda a sexta)",
+    status: { capacidade: 40, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 49,
+    nome: "Ecoponto Japeri Engenheiro Pedreira",
+    endereco: "Estrada do Comércio, 200 - Engenheiro Pedreira, Japeri",
+    posicao: { lat: -22.6583, lng: -43.6678 },
+    materiais: ["vidro", "eletrônicos"],
+    horario: "09h às 17h (terça a sábado)",
+    status: { capacidade: 25, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 50,
+    nome: "Ecoponto Seropédica Centro",
+    endereco: "Rua Vereador João Moreira, 300 - Centro, Seropédica",
+    posicao: { lat: -22.7439, lng: -43.7075 },
+    materiais: ["metal", "vidro", "papel", "plástico"],
+    horario: "08h às 17h (segunda a sexta)",
+    status: { capacidade: 50, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+},
+{
+    id: 51,
+    nome: "Ecoponto Seropédica Vila Caxias",
+    endereco: "Estrada Rio São Paulo, Km 40 - Vila Caxias, Seropédica",
+    posicao: { lat: -22.7286, lng: -43.6922 },
+    materiais: ["metal", "eletrônicos"],
+    horario: "09h às 16h (terça a domingo)",
+    status: { capacidade: 35, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 52,
+    nome: "Ecoponto Paracambi Centro",
+    endereco: "Rua Major Osvaldo de Almeida, 100 - Centro, Paracambi",
+    posicao: { lat: -22.6089, lng: -43.7086 },
+    materiais: ["vidro", "papel", "plástico"],
+    horario: "08h às 15h (segunda a sexta)",
+    status: { capacidade: 28, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 53,
+    nome: "Ecoponto Belford Roxo Wona",
+    endereco: "Rua Ayrton Senna, 200 - Wona, Belford Roxo",
+    posicao: { lat: -22.7744, lng: -43.4128 },
+    materiais: ["metal", "vidro", "eletrônicos"],
+    horario: "10h às 18h (quarta a domingo)",
+    status: { capacidade: 45, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 54,
+    nome: "Ecoponto Itaguaí Centro",
+    endereco: "Rua Coronel Belarmino Ricardo, 150 - Centro, Itaguaí",
+    posicao: { lat: -22.8519, lng: -43.7753 },
+    materiais: ["metal", "papel", "plástico", "óleo"],
+    horario: "08h às 16h (segunda a sexta)",
+    status: { capacidade: 60, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 57,
+    nome: "Ecoponto Alcântara",
+    endereco: "Rua Doutor Getúlio Vargas, 320 - Alcântara, São Gonçalo",
+    posicao: { lat: -22.8312, lng: -43.0387 },
+    materiais: ["metal", "vidro", "plástico", "eletrônicos", "óleo"],
+    horario: "07h às 18h (segunda a sexta) | 08h às 14h (sábado)",
+    status: { capacidade: 80, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 58,
+    nome: "Ecoponto Neves",
+    endereco: "Avenida São Gonçalo, 1250 - Neves, São Gonçalo",
+    posicao: { lat: -22.8065, lng: -43.0254 },
+    materiais: ["papelão", "plástico", "isopor", "pilhas", "lâmpadas"],
+    horario: "08h às 16h (terça a domingo)",
+    status: { capacidade: 65, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+,{
+    id: 59,
+    nome: "Ecoponto Jardim Trindade",
+    endereco: "Estrada da Luz, 450 - Jardim Trindade, São Gonçalo",
+    posicao: { lat: -22.8453, lng: -43.0128 },
+    materiais: ["entulho (até 1m³)", "madeira", "metais", "pneus (até 4 unidades)"],
+    horario: "09h às 15h (quarta a segunda)",
+    status: { capacidade: 70, operacional: true, ultimaAtualizacao: new Date().toISOString() }
+}
+    ];
+
+        let map;
+        let markers = [];
+        let infoWindow;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: -22.9068, lng: -43.1729 },
+                zoom: 12,
+                mapTypeId: "roadmap",
+                styles: [
+                    { featureType: "poi", stylers: [{ visibility: "off" }] }
+                ]
+            });
+
+            infoWindow = new google.maps.InfoWindow();
+            addEcopontosToMap();
+            
+            document.getElementById('refresh-status').addEventListener('click', updateStatus);
+        }
+
+        function addEcopontosToMap() {
+            clearMarkers();
+            
+            ecopontos.forEach(ecoponto => {
+                const marker = new google.maps.Marker({
+                    position: ecoponto.posicao,
+                    map: map,
+                    title: ecoponto.nome,
+                    icon: getStatusIcon(ecoponto.status.capacidade, ecoponto.status.operacional),
+                    ecopontoId: ecoponto.id
+                });
+                
+                marker.addListener('click', () => {
+                    showEcopontoInfo(ecoponto, marker);
+                });
+                
+                markers.push(marker);
+            });
+        }
+
+        function showEcopontoInfo(ecoponto, marker) {
+            const statusClass = getStatusClass(ecoponto.status.capacidade, ecoponto.status.operacional);
+            const statusText = getStatusText(ecoponto.status.capacidade, ecoponto.status.operacional);
+            
+            const content = `
+                <div class="ecoponto-info">
+                    <h3>${ecoponto.nome}</h3>
+                    <p><strong>Status:</strong> <span class="status-badge ${statusClass}"></span> ${statusText}</p>
+                    <p><strong>Última atualização:</strong> ${new Date(ecoponto.status.ultimaAtualizacao).toLocaleString()}</p>
+                    <p><strong>Endereço:</strong> ${ecoponto.endereco}</p>
+                    <p><strong>Horário:</strong> ${ecoponto.horario}</p>
+                    <p><strong>Materiais aceitos:</strong> ${ecoponto.materiais.join(', ')}</p>
+                </div>
+            `;
+            
+            infoWindow.setContent(content);
+            infoWindow.open(map, marker);
+        }
+
+        function updateStatus() {
+            // SIMULAÇÃO - substitua por chamada à sua API
+            ecopontos.forEach(ep => {
+                ep.status.capacidade = Math.max(0, Math.min(100, ep.status.capacidade + (Math.random() * 20 - 10)));
+                ep.status.operacional = Math.random() > 0.1;
+                ep.status.ultimaAtualizacao = new Date().toISOString();
+            });
+            
+            markers.forEach(marker => {
+                const ecoponto = ecopontos.find(e => e.id === marker.ecopontoId);
+                if (ecoponto) {
+                    marker.setIcon(getStatusIcon(ecoponto.status.capacidade, ecoponto.status.operacional));
+                }
+            });
+            
+            alert("Status atualizado com sucesso!");
+        }
+
+        function getStatusIcon(capacidade, operacional) {
+            if (!operacional) {
+                return {
+                    url: "https://maps.google.com/mapfiles/ms/icons/gray-dot.png",
+                    scaledSize: new google.maps.Size(32, 32)
+                };
+            }
+            if (capacidade <= 70) return {
+                url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
+                scaledSize: new google.maps.Size(32, 32)
+            };
+            if (capacidade <= 90) return {
+                url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+                scaledSize: new google.maps.Size(32, 32)
+            };
+            return {
+                url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                scaledSize: new google.maps.Size(32, 32)
+            };
+        }
+
+        function getStatusClass(capacidade, operacional) {
+            if (!operacional) return "status-offline";
+            if (capacidade <= 70) return "status-available";
+            if (capacidade <= 90) return "status-warning";
+            return "status-full";
+        }
+
+        function getStatusText(capacidade, operacional) {
+            if (!operacional) return "EM MANUTENÇÃO";
+            if (capacidade <= 70) return "DISPONÍVEL";
+            if (capacidade <= 90) return "QUASE CHEIO";
+            return "LOTADO";
+        }
+
+        function clearMarkers() {
+            markers.forEach(marker => marker.setMap(null));
+            markers = [];
+        }
+    </script>
+
+
+<!-- Adicione esta linha ANTES do fechamento do body -->
+<script src="auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Verifica se NÃO está na página index
+    if (!isIndexPage()) {
+        setupFooterLinks();
+    }
+});
+
+function isIndexPage() {
+    return window.location.pathname.endsWith("index.html") || 
+           window.location.pathname === "/";
+}
+
+function setupFooterLinks() {
+    const footerLinks = document.querySelectorAll('.footer-links a[href*="termos-de-uso"], .footer-links a[href*="politica-de-privacidade"]');
+    
+    footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Se já estiver na página de termos/política, não faz nada
+            if (window.location.pathname.includes(link.getAttriclute('href'))) return;
+            
+            e.preventDefault();
+            if (history.length > 1) {
+                history.back(); // Volta para a página anterior (servicos.html)
+            } else {
+                window.location.href = link.getAttribute('href'); // Fallback
+            }
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', function() {
+    if (!isIndexPage()) {
+        setupFooterLinks();
+    }
+});
+
+function isIndexPage() {
+    return window.location.pathname.endsWith("index.html") || 
+           window.location.pathname === "/";
+}
+
+function setupFooterLinks() {
+    const footerLinks = document.querySelectorAll('.footer-links a[href*="politica-de-privacidade"]');
+    
+    footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Se já estiver na página de política de serviços, não faz nada
+            if (window.location.pathname.includes("politica-de-privacidade-servicos.html")) return;
+            
+            e.preventDefault();
+            
+            // Redireciona para a política específica dos serviços
+            if (link.getAttribute('href').includes("politica-de-privacidade")) {
+                window.location.href = "politica-de-privacidade-servicos.html";
+            }
+        });
+    });
+}
+</script>
+</body>
+</html>

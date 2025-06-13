@@ -1,0 +1,404 @@
+[
+  {
+    "pergunta": "Qual é a capital do Brasil?",
+    "opcoes": ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"],
+    "resposta_correta": "Brasília",
+    "explicacao": "Brasília foi planejada e desenvolvida para ser a capital do Brasil, inaugurada em 1960."
+  },
+  {
+    "pergunta": "Qual é o maior oceano do mundo?",
+    "opcoes": ["Atlântico", "Índico", "Ártico", "Pacífico"],
+    "resposta_correta": "Pacífico",
+    "explicacao": "O Oceano Pacífico cobre cerca de 1/3 da superfície da Terra."
+  },
+  {
+    "pergunta": "Quem escreveu 'Dom Quixote'?",
+    "opcoes": ["Miguel de Cervantes", "William Shakespeare", "Machado de Assis", "Gabriel García Márquez"],
+    "resposta_correta": "Miguel de Cervantes"
+  },
+  {
+    "pergunta": "Qual elemento químico tem o símbolo O?",
+    "opcoes": ["Ouro", "Oxigênio", "Osmio", "Ozônio"],
+    "resposta_correta": "Oxigênio"
+  },
+  {
+    "pergunta": "Em que ano o homem pisou na Lua pela primeira vez?",
+    "opcoes": ["1965", "1969", "1973", "1980"],
+    "resposta_correta": "1969"
+  },
+  {
+    "pergunta": "Qual animal é conhecido como o 'rei da selva'?",
+    "opcoes": ["Tigre", "Leão", "Elefante", "Gorila"],
+    "resposta_correta": "Leão"
+  },
+  {
+    "pergunta": "Qual a montanha mais alta do mundo?",
+    "opcoes": ["K2", "Kangchenjunga", "Monte Everest", "Lhotse"],
+    "resposta_correta": "Monte Everest"
+  },
+  {
+    "pergunta": "Qual rio atravessa a cidade de Paris?",
+    "opcoes": ["Loire", "Sena", "Garonne", "Ródano"],
+    "resposta_correta": "Sena"
+  },
+  {
+    "pergunta": "Qual o planeta mais próximo do Sol?",
+    "opcoes": ["Vênus", "Marte", "Mercúrio", "Júpiter"],
+    "resposta_correta": "Mercúrio"
+  },
+  {
+    "pergunta": "Quem pintou a Mona Lisa?",
+    "opcoes": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+    "resposta_correta": "Leonardo da Vinci"
+  },
+  {
+    "pergunta": "Qual o maior país do mundo em área territorial?",
+    "opcoes": ["China", "Canadá", "Estados Unidos", "Rússia"],
+    "resposta_correta": "Rússia"
+  },
+  {
+    "pergunta": "Qual a moeda oficial do Japão?",
+    "opcoes": ["Yuan", "Won", "Iene", "Euro"],
+    "resposta_correta": "Iene"
+  },
+  {
+    "pergunta": "Qual o metal mais abundante na crosta terrestre?",
+    "opcoes": ["Ferro", "Alumínio", "Cobre", "Ouro"],
+    "resposta_correta": "Alumínio"
+  },
+  {
+    "pergunta": "Qual o nome do processo pelo qual as plantas produzem seu próprio alimento?",
+    "opcoes": ["Respiração", "Transpiração", "Fotossíntese", "Germinação"],
+    "resposta_correta": "Fotossíntese"
+  },
+  {
+    "pergunta": "Qual o menor osso do corpo humano?",
+    "opcoes": ["Estribo", "Martelo", "Bigorna", "Fêmur"],
+    "resposta_correta": "Estribo"
+  },
+  {
+    "pergunta": "Qual o esporte mais popular no Brasil?",
+    "opcoes": ["Vôlei", "Basquete", "Futebol", "Natação"],
+    "resposta_correta": "Futebol"
+  },
+  {
+    "pergunta": "Qual o animal símbolo da Austrália?",
+    "opcoes": ["Canguru", "Coala", " ornitorrinco", "Equidna"],
+    "resposta_correta": "Canguru"
+  },
+  {
+    "pergunta": "Qual o gás mais abundante na atmosfera da Terra?",
+    "opcoes": ["Oxigênio", "Dióxido de Carbono", "Nitrogênio", "Argônio"],
+    "resposta_correta": "Nitrogênio"
+  },
+  {
+    "pergunta": "Qual o nome do famoso detetive criado por Arthur Conan Doyle?",
+    "opcoes": ["Hercule Poirot", "Miss Marple", "Sherlock Holmes", "Philip Marlowe"],
+    "resposta_correta": "Sherlock Holmes"
+  },
+  {
+    "pergunta": "Qual o maior deserto do mundo?",
+    "opcoes": ["Deserto do Saara", "Deserto de Gobi", "Deserto da Arábia", "Antártida"],
+    "resposta_correta": "Antártida"
+  },
+  {
+    "pergunta": "Qual a capital da Argentina?",
+    "opcoes": ["Santiago", "Montevidéu", "Lima", "Buenos Aires"],
+    "resposta_correta": "Buenos Aires"
+  },
+  {
+    "pergunta": "Qual o nome da ciência que estuda os terremotos?",
+    "opcoes": ["Vulcanologia", "Meteorologia", "Sismologia", "Geologia"],
+    "resposta_correta": "Sismologia"
+  },
+  {
+    "pergunta": "Qual o maior mamífero do mundo?",
+    "opcoes": ["Elefante Africano", "Baleia Azul", "Orca", "Hipopótamo"],
+    "resposta_correta": "Baleia Azul"
+  },
+  {
+    "pergunta": "Qual o nome do primeiro imperador romano?",
+    "opcoes": ["Júlio César", "Nero", "Augusto", "Calígula"],
+    "resposta_correta": "Augusto"
+  },
+  {
+    "pergunta": "Qual o metal líquido à temperatura ambiente?",
+    "opcoes": ["Ferro", "Chumbo", "Mercúrio", "Alumínio"],
+    "resposta_correta": "Mercúrio"
+  },
+  {
+    "pergunta": "Qual o nome da famosa torre inclinada na Itália?",
+    "opcoes": ["Torre Eiffel", "Torre de Pisa", "Torre de Londres", "Torre CN"],
+    "resposta_correta": "Torre de Pisa"
+  },
+  {
+    "pergunta": "Qual o nome do processo de transformação da água do estado líquido para o gasoso?",
+    "opcoes": ["Condensação", "Solidificação", "Evaporação", "Sublimação"],
+    "resposta_correta": "Evaporação"
+  },
+  {
+    "pergunta": "Qual o nome do cientista que formulou a teoria da relatividade?",
+    "opcoes": ["Isaac Newton", "Galileu Galilei", "Albert Einstein", "Stephen Hawking"],
+    "resposta_correta": "Albert Einstein"
+  },
+  {
+    "pergunta": "Qual o maior órgão do corpo humano?",
+    "opcoes": ["Cérebro", "Coração", "Pele", "Fígado"],
+    "resposta_correta": "Pele"
+  },
+  {
+    "pergunta": "Qual o nome do famoso pintor holandês que cortou a própria orelha?",
+    "opcoes": ["Rembrandt", "Johannes Vermeer", "Vincent van Gogh", "Piet Mondrian"],
+    "resposta_correta": "Vincent van Gogh"
+  },
+  {
+    "pergunta": "Qual o nome do menor continente do mundo?",
+    "opcoes": ["Europa", "Ásia", "Oceania", "Antártida"],
+    "resposta_correta": "Oceania"
+  },
+  {
+    "pergunta": "Qual o nome do instrumento usado para medir a pressão atmosférica?",
+    "opcoes": ["Termômetro", "Anemômetro", "Barômetro", "Higrômetro"],
+    "resposta_correta": "Barômetro"
+  },
+  {
+    "pergunta": "Qual o nome do satélite natural da Terra?",
+    "opcoes": ["Fobos", "Deimos", "Lua", "Titã"],
+    "resposta_correta": "Lua"
+  },
+  {
+    "pergunta": "Qual o nome do famoso compositor alemão da Nona Sinfonia?",
+    "opcoes": ["Mozart", "Bach", "Beethoven", "Wagner"],
+    "resposta_correta": "Beethoven"
+  },
+  {
+    "pergunta": "Qual o nome do processo de divisão celular que resulta em duas células filhas idênticas?",
+    "opcoes": ["Meiose", "Mitose", "Osmose", "Fotossíntese"],
+    "resposta_correta": "Mitose"
+  },
+  {
+    "pergunta": "Qual o nome do ponto mais profundo dos oceanos?",
+    "opcoes": ["Fossa das Marianas", "Fossa de Porto Rico", "Fossa de Sunda", "Fossa do Peru-Chile"],
+    "resposta_correta": "Fossa das Marianas"
+  },
+  {
+    "pergunta": "Qual o nome do famoso físico que descobriu a lei da gravitação universal?",
+    "opcoes": ["Albert Einstein", "Galileu Galilei", "Isaac Newton", "Nikola Tesla"],
+    "resposta_correta": "Isaac Newton"
+  },
+  {
+    "pergunta": "Qual o nome do maior animal terrestre?",
+    "opcoes": ["Girafa", "Rinoceronte", "Elefante Africano", "Hipopótamo"],
+    "resposta_correta": "Elefante Africano"
+  },
+  {
+    "pergunta": "Qual o nome do famoso explorador português que chegou às Índias navegando pela África?",
+    "opcoes": ["Cristóvão Colombo", "Fernão de Magalhães", "Vasco da Gama", "Pedro Álvares Cabral"],
+    "resposta_correta": "Vasco da Gama"
+  },
+  {
+    "pergunta": "Qual o nome do gás responsável pela cor azul do céu?",
+    "opcoes": ["Oxigênio", "Nitrogênio", "Argônio", "Hélio"],
+    "resposta_correta": "Nitrogênio"
+  },
+  {
+    "pergunta": "Qual o nome do processo de transformação de rochas em solo?",
+    "opcoes": ["Erosão", "Sedimentação", "Intemperismo", "Compactação"],
+    "resposta_correta": "Intemperismo"
+  },
+  {
+    "pergunta": "Qual o nome do famoso vulcão na Itália que destruiu Pompeia?",
+    "opcoes": ["Etna", "Stromboli", "Vesúvio", "Monte Fuji"],
+    "resposta_correta": "Vesúvio"
+  },
+  {
+    "pergunta": "Qual o nome do maior rio do mundo em volume de água?",
+    "opcoes": ["Rio Nilo", "Rio Amazonas", "Rio Mississippi", "Rio Yangtzé"],
+    "resposta_correta": "Rio Amazonas"
+  },
+  {
+    "pergunta": "Qual o nome do famoso matemático grego considerado o 'pai da geometria'?",
+    "opcoes": ["Pitágoras", "Arquimedes", "Euclides", "Tales de Mileto"],
+    "resposta_correta": "Euclides"
+  },
+  {
+    "pergunta": "Qual o nome da camada da atmosfera terrestre que nos protege da radiação ultravioleta?",
+    "opcoes": ["Troposfera", "Estratosfera", "Mesosfera", "Termosfera"],
+    "resposta_correta": "Estratosfera"
+  },
+  {
+    "pergunta": "Qual o nome do processo de produção de energia nas estrelas?",
+    "opcoes": ["Fissão Nuclear", "Fusão Nuclear", "Combustão", "Radioatividade"],
+    "resposta_correta": "Fusão Nuclear"
+  },
+  {
+    "pergunta": "Qual o nome do famoso físico que formulou as leis do movimento?",
+    "opcoes": ["Albert Einstein", "Galileu Galilei", "Isaac Newton", "Nikola Tesla"],
+    "resposta_correta": "Isaac Newton"
+  },
+  {
+    "pergunta": "Qual o nome do maior oceano em área?",
+    "opcoes": ["Atlântico", "Índico", "Ártico", "Pacífico"],
+    "resposta_correta": "Pacífico"
+  },
+  {
+    "pergunta": "Qual o nome do processo de transformação de líquido para sólido?",
+    "opcoes": ["Evaporação", "Condensação", "Solidificação", "Fusão"],
+    "resposta_correta": "Solidificação"
+  },
+  {
+    "pergunta": "Qual o nome do famoso químico que desenvolveu a tabela periódica?",
+    "opcoes": ["Antoine Lavoisier", "Marie Curie", "Dmitri Mendeleev", "Niels Bohr"],
+    "resposta_correta": "Dmitri Mendeleev"
+  },
+  {
+    "pergunta": "Qual o nome do maior osso do corpo humano?",
+    "opcoes": ["Tíbia", "Fíbula", "Fêmur", "Úmero"],
+    "resposta_correta": "Fêmur"
+  },
+  {
+    "pergunta": "Qual o nome do famoso explorador genovês que chegou à América em 1492?",
+    "opcoes": ["Vasco da Gama", "Fernão de Magalhães", "Cristóvão Colombo", "Pedro Álvares Cabral"],
+    "resposta_correta": "Cristóvão Colombo"
+  },
+  {
+    "pergunta": "Qual o nome do gás usado em balões de festa que os faz flutuar?",
+    "opcoes": ["Oxigênio", "Nitrogênio", "Hélio", "Hidrogênio"],
+    "resposta_correta": "Hélio"
+  },
+  {
+    "pergunta": "Qual o nome do processo de transformação de gás para líquido?",
+    "opcoes": ["Evaporação", "Condensação", "Solidificação", "Fusão"],
+    "resposta_correta": "Condensação"
+  },
+  {
+    "pergunta": "Qual o nome do famoso físico que descobriu a eletricidade estática?",
+    "opcoes": ["Isaac Newton", "Albert Einstein", "Benjamin Franklin", "Nikola Tesla"],
+    "resposta_correta": "Benjamin Franklin"
+  },
+  {
+    "pergunta": "Qual o nome do menor planeta do sistema solar?",
+    "opcoes": ["Vênus", "Marte", "Mercúrio", "Plutão"],
+    "resposta_correta": "Mercúrio"
+  },
+  {
+    "pergunta": "Qual o nome do famoso pintor espanhol conhecido por suas obras surrealistas?",
+    "opcoes": ["Pablo Picasso", "Salvador Dalí", "Joan Miró", "Francisco Goya"],
+    "resposta_correta": "Salvador Dalí"
+  },
+  {
+    "pergunta": "Qual o nome do maior país da América do Sul em área?",
+    "opcoes": ["Argentina", "Colômbia", "Peru", "Brasil"],
+    "resposta_correta": "Brasil"
+  },
+  {
+    "pergunta": "Qual o nome da ciência que estuda os vulcões?",
+    "opcoes": ["Sismologia", "Meteorologia", "Vulcanologia", "Geologia"],
+    "resposta_correta": "Vulcanologia"
+  },
+  {
+    "pergunta": "Qual o nome do maior réptil do mundo?",
+    "opcoes": ["Jacaré-açu", "Crocodilo-de-água-salgada", "Sucuri", "Dragão-de-komodo"],
+    "resposta_correta": "Crocodilo-de-água-salgada"
+  },
+  {
+    "pergunta": "Qual o nome do famoso líder sul-africano que lutou contra o apartheid?",
+    "opcoes": ["Desmond Tutu", "Nelson Mandela", "Steve Biko", "Walter Sisulu"],
+    "resposta_correta": "Nelson Mandela"
+  },
+  {
+    "pergunta": "Qual o nome do metal mais precioso?",
+    "opcoes": ["Prata", "Cobre", "Ouro", "Platina"],
+    "resposta_correta": "Ouro"
+  },
+  {
+    "pergunta": "Qual o nome da famosa cidade italiana conhecida por seus canais?",
+    "opcoes": ["Roma", "Florença", "Veneza", "Milão"],
+    "resposta_correta": "Veneza"
+  },
+  {
+    "pergunta": "Qual o nome do processo de transformação de sólido para gás diretamente?",
+    "opcoes": ["Evaporação", "Condensação", "Solidificação", "Sublimação"],
+    "resposta_correta": "Sublimação"
+  },
+  {
+    "pergunta": "Qual o nome do famoso físico que formulou a teoria da mecânica quântica?",
+    "opcoes": ["Albert Einstein", "Niels Bohr", "Max Planck", "Werner Heisenberg"],
+    "resposta_correta": "Max Planck"
+  },
+  {
+    "pergunta": "Qual o nome do maior deserto quente do mundo?",
+    "opcoes": ["Deserto de Gobi", "Deserto da Arábia", "Deserto do Saara", "Deserto de Atacama"],
+    "resposta_correta": "Deserto do Saara"
+  },
+  {
+    "pergunta": "Qual a capital do Canadá?",
+    "opcoes": ["Toronto", "Vancouver", "Montreal", "Ottawa"],
+    "resposta_correta": "Ottawa"
+  },
+  {
+    "pergunta": "Qual o nome da ciência que estuda o clima?",
+    "opcoes": ["Meteorologia", "Climatologia", "Geografia", "Ecologia"],
+    "resposta_correta": "Climatologia"
+  },
+  {
+    "pergunta": "Qual o nome do maior peixe do mundo?",
+    "opcoes": ["Tubarão Branco", "Baleia Cachalote", "Tubarão Baleia", "Orka"],
+    "resposta_correta": "Tubarão Baleia"
+  },
+  {
+    "pergunta": "Qual o nome do famoso líder indiano que defendeu a não-violência?",
+    "opcoes": ["Jawaharlal Nehru", "Mahatma Gandhi", "Sardar Patel", "Subhas Chandra Bose"],
+    "resposta_correta": "Mahatma Gandhi"
+  },
+  {
+    "pergunta": "Qual o nome do elemento químico com o símbolo H?",
+    "opcoes": ["Hélio", "Hidrogênio", "Hássio", "Háfnio"],
+    "resposta_correta": "Hidrogênio"
+  },
+  {
+    "pergunta": "Qual o nome da famosa cidade grega conhecida pela Acrópole?",
+    "opcoes": ["Esparta", "Tebas", "Corinto", "Atenas"],
+    "resposta_correta": "Atenas"
+  },
+  {
+    "pergunta": "Qual o nome do processo de transformação de gás para sólido diretamente?",
+    "opcoes": ["Evaporação", "Condensação", "Solidificação", "Deposição"],
+    "resposta_correta": "Deposição"
+  },
+  {
+    "pergunta": "Qual o nome do famoso físico que descobriu a radioatividade?",
+    "opcoes": ["Marie Curie", "Pierre Curie", "Henri Becquerel", "Ernest Rutherford"],
+    "resposta_correta": "Henri Becquerel"
+  },
+  {
+    "pergunta": "Qual o nome do maior animal que já viveu na Terra?",
+    "opcoes": ["Dinossauro Argentinossauro", "Baleia Azul", "Braquiossauro", "Titanossauro"],
+    "resposta_correta": "Baleia Azul"
+  },
+  {
+    "pergunta": "Qual a capital da Austrália?",
+    "opcoes": ["Sydney", "Melbourne", "Brisbane", "Canberra"],
+    "resposta_correta": "Canberra"
+  },
+  {
+    "pergunta": "Qual o nome da ciência que estuda os fósseis?",
+    "opcoes": ["Arqueologia", "Antropologia", "Paleontologia", "Geologia"],
+    "resposta_correta": "Paleontologia"
+  },
+  {
+    "pergunta": "Qual o nome do maior pássaro do mundo?",
+    "opcoes": ["Águia", "Avestruz", "Condor", "Albatroz"],
+    "resposta_correta": "Avestruz"
+  },
+  {
+    "pergunta": "Qual o nome do famoso filósofo grego, aluno de Platão e professor de Alexandre, o Grande?",
+    "opcoes": ["Sócrates", "Platão", "Aristóteles", "Epicuro"],
+    "resposta_correta": "Aristóteles"
+  },
+  {
+    "pergunta": "Qual o nome do elemento químico com o símbolo O?",
+    "opcoes": ["Ouro", "Oxigênio", "Osmio", "Ozônio"],
+    "resposta_correta": "Oxigênio"
+  }
+]
